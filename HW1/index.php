@@ -22,7 +22,7 @@
             </figure>
             
             <div id="textMain">
-                <p>Computer graphics are photos and video clips created using computers. The term usually refers to computer-generated <br/>
+                <p id="M">Computer graphics are photos and video clips created using computers. The term usually refers to computer-generated <br/>
                 image data created with specialized graphic hardware and software. It is a huge area in computer <br/>
                 science. It is often abbreviated as CG, though sometimes erroneously referred to as computer-generated imagery (CGI). <br/> <br/>
                 

@@ -1,6 +1,7 @@
 body {
     background:black;
 }
+
 nav {
     text-align: center;
     color:orange;
@@ -18,16 +19,23 @@ nav a {
     color: white;
 }
 
+nav a:hover { 
+    font-size: 1.5em;
+    transition: .9s;
+}
+
 h1 {
     font-size: 1.8em;
     text-align: center;
     margin: 0;
     color:white;
 }
+
 h4 {
     display:inline;
     /*font-size: 1.3em;*/
 }
+
 #mainPage {
     text-align: center;
 }
@@ -46,7 +54,17 @@ footer {
     clear:both;
 }
 
-#subPageA, #subPageB, #subPageC {
+#subPageA {
+    float:left;
+    width:49%;
+}
+
+#subPageB {
+    float:left;
+    width:49%;
+}
+
+#subPageC {
     float:left;
     width:49%;
 }
@@ -56,15 +74,45 @@ footer {
     font-style: oblique;
 }
 
-#subTextA, #subTextB, #subTextC {
+#subTextA {
     color:white;
     float:right;
     text-align: left;
     width:45%;
+    
+}
+
+#subTextB{
+    color:white;
+    float:right;
+    text-align: left;
+    width:45%;
+}
+
+#subTextC {
+    color:white;
+    float:right;
+    text-align: left;
+    width:45%;
+}
+
+#M {
     font-weight: lighter;
     font-family: sans-serif;
 }
 
-/*p {*/
-/*    font-weight: light;*/
-/*}*/
+#A {
+    font-weight: lighter;
+    font-family: sans-serif;
+}
+
+#B {
+    font-weight: lighter;
+    font-family: sans-serif;
+}
+
+#C {
+    font-weight: lighter;
+    font-family: sans-serif;
+}
+
