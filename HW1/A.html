@@ -11,7 +11,7 @@
         </header>
         <nav>
             <hr/>
-            <a href="index.html"><h4>Home</h4></a>
+            <a href="index.php"><h4>Home</h4></a>
             <a href="A.html"><h4>2D</h4></a>
             <a href="B.html"><h4>3D</h4></a>
             <a href="C.html"><h4>CA</h4></a>
