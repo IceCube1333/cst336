@@ -2,7 +2,7 @@
 
     function play() {
         for ($i=1;$i<4;$i++) {
-            ${"randomValue" . $i} = rand(0,3);
+            ${"randomValue" . $i} = rand(0,0);
             displaySymbdol(${"randomValue" . $i}, $i);
         }
         displayPoints($randomValue1, $randomValue2, $randomValue3);
@@ -29,6 +29,8 @@
             switch($randomValue1) {
                 case 0: $totalPoints = 1000;
                         echo "<h1>Jackpot!</h1>";
+                        echo 
+                        "<audio src='Slot Machine Jackpot Sound Effect.mp3' autoplay></audio>";
                         break;
                 case 1: $totalPoints = 500;
                         break;
