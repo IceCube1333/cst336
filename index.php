@@ -41,8 +41,10 @@
                 }
                 
                 echo calculateHandValue($person["cards"]);
+                
             }    
             
+            // calculates hand value
             function calculateHandValue($cards) {
                 $sum = 0;
                 for($i = 0; $i < count($cards); $i++) {
@@ -52,6 +54,17 @@
                 return $sum;
             }
             displayPerson($person);
+            
+            
+            
+            // detects win or lose
+            function winning($sum) {
+                if ($sum != 42) {
+                    displayPerson($person);
+                } else {
+                    echo "Winner!";
+                }
+            }
 
 
         ?>
