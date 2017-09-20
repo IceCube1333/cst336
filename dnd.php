@@ -13,33 +13,38 @@
     <body>
         
         <nav>
-            <a href="index.php" id="current">Home</a>
-            <a href="dnd.php">DND Dice</a>
+            <a href="index.php">Home</a>
+            <a href="dnd.php" id="current">DND Dice</a>
             <a href="d2HeadsTails.php">D2 Heads or Tails</a>
-            
             
         </nav>
         
         <div id ="main">
-            <h1>Random Dice Generator</h1>
+            <h1>DND Dice Generator</h1>
             
-            <div id="dice">
+            <div id= "dndDice">
                 <?php
-            
-                normalDice();
-    
-                ?>
-               <form id="roll">
-                <input type="submit" value="Roll"/> 
-               </form>
-               <hr>
+             
+                buildD4();
+                buildD6();
+                buildD8();
+                buildD10();
+                buildD12();
+                buildD20();
+                buildD100();
+            ?>
             </div>
              
+           <form id="rollDnd">
+            <input type="submit" value="Roll"/> 
+           </form>
+           <hr>
            
         </div>
        
-        <footer>
+       <footer>
             CST336 2017&copy; Hutt
         </footer>
+        
     </body>
 </html>

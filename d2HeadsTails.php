@@ -13,23 +13,23 @@
     <body>
         
         <nav>
-            <a href="index.php" id="current">Home</a>
+            <a href="index.php">Home</a>
             <a href="dnd.php">DND Dice</a>
-            <a href="d2HeadsTails.php">D2 Heads or Tails</a>
+            <a href="d2HeadsTails.php" id="current">D2 Heads or Tails</a>
             
             
         </nav>
         
         <div id ="main">
-            <h1>Random Dice Generator</h1>
+            <h1>Heads or Tails Dice Generator</h1>
             
-            <div id="dice">
+            <div id="2dHeadsTails">
                 <?php
             
-                normalDice();
+                HeadsTails();
     
                 ?>
-               <form id="roll">
+               <form id="headsTailsroll">
                 <input type="submit" value="Roll"/> 
                </form>
                <hr>
