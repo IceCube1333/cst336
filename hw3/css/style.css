@@ -1,0 +1,64 @@
+body {
+    text-align: center;
+}
+
+header {
+    /*use somehow*/
+}
+
+h1 {
+    color:blue;
+}
+
+div {
+    padding-right: 50px;
+}
+
+#ftitle{
+    padding-right: 135px;
+    margin-bottom: 1px;
+}
+
+#fname {
+    padding-right: 80px;
+}
+
+#ltitle {
+    padding-right: 135px;
+    margin-bottom: 1px;
+}
+
+#lname {
+    padding-right: 80px;
+}
+
+#mtitle {
+    display: inline-block;
+}
+
+#male {
+    margin-top: 25px;
+}
+
+#fetitle {
+    display: inline-block;
+}
+
+#female {
+    /*use somehow*/
+}
+
+#submit {
+    color:white;
+    background-color: blue;
+    border-color: blue;
+    padding-right: 10px;
+    padding-left: 10px;
+    padding-top: 4px;
+    padding-bottom: 4px;
+    margin-bottom: 15px;
+}
+
+footer {
+    font-size: 10px;
+}
