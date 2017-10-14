@@ -5,11 +5,16 @@
     </head>
     
     <body>
+        
+        <nav>
+            <a href="index.php">Home</a>
+        </nav>
+        
         <header>
             <h1>Which Penguin Are You?</h1>
         </header>
         
-        <form>
+        <form action="penguins.php" method="post">
             <div>
                 <p id="ftitle">First Name: </p>
                 <input type="text" name="firstname" id="fname"/>
@@ -21,13 +26,17 @@
                 <p id="mtitle">Male</p>
                 <input type="radio" name="gender" value="Female" id="female"/>
                 <p id="fetitle">Female</p><br/>
+                <p id="selector">Choose a Number</p>
+                <select name="numbers" id="num">
+                    <option value="1">1</option>
+                    <option value="2">2</option>
+                    <option value="3">3</option>
+                    <option value="4">4</option>
+                </select>
+                <br/>
                 <input type="submit" value="Submit" id="submit"/>
             </div>
         </form>
-        
-        <?php
-        
-        ?>
         
         <footer>
             <hr>
