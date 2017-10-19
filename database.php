@@ -7,6 +7,7 @@
         
         <header>
             <h1>Device Checkout</h1>
+            <h2>Using php & sql database</h2>
         </header>        
         
         <!--originally sorted by name and devices are displayed-->
@@ -42,7 +43,7 @@
                 }
                 // echo "Connected successfully";
                  
-                // make a query
+                // // make a query
                 if($_POST ["sort"] == "clear" && $_POST ["filter"] == "clear") {
                     $sql = "SELECT id, deviceName FROM Device WHERE 1 ORDER BY deviceName ASC";
                     $result = $conn->query($sql);
@@ -62,7 +63,7 @@
                 }
                 
                 //sort by price 
-                else if($_POST ["sort"] == 'Device Price') {
+                if($_POST ["sort"] == 'Device Price' && $_POST ["filter"] == 'clear') {
                     $sql = "SELECT id, deviceName, price FROM Device WHERE 1 ORDER BY price DESC";
                     $result = $conn->query($sql);
                     
@@ -79,7 +80,7 @@
                  }
                  
                  //sort by name 
-                else if($_POST ["sort"] == 'Device Name') {
+                else if($_POST ["sort"] == 'Device Name' && $_POST ["filter"] == 'clear') {
                     $sql = "SELECT id, deviceName FROM Device WHERE 1 ORDER BY deviceName ASC";
                     $result = $conn->query($sql);
                     
@@ -96,7 +97,7 @@
                  }
                  
                  //filter by computer
-                else if($_POST ["filter"] == 'Computer') {
+                else if($_POST ["filter"] == 'Computer' && $_POST ["sort"] == 'clear') {
                     $sql = "SELECT id, deviceName, deviceType FROM Device WHERE deviceType = 'Computer' ";
                     $result = $conn->query($sql);
                     
@@ -113,7 +114,7 @@
                  }
                  
                  //filter by Tablet
-                else if($_POST ["filter"] == 'Tablet') {
+                else if($_POST ["filter"] == 'Tablet' && $_POST ["sort"] == 'clear') {
                     $sql = "SELECT id, deviceName, deviceType FROM Device WHERE deviceType = 'Tablet' ";
                     $result = $conn->query($sql);
                     
@@ -130,7 +131,7 @@
                  }
                  
                  //filter by Connector
-                else if($_POST ["filter"] == 'Connector') {
+                else if($_POST ["filter"] == 'Connector' && $_POST ["sort"] == 'clear') {
                     $sql = "SELECT id, deviceName, deviceType FROM Device WHERE deviceType = 'Connector' ";
                     $result = $conn->query($sql);
                     
@@ -147,7 +148,7 @@
                  }
                  
                  //filter by name 
-                else if($_POST ["filter"] == 'Device Name') {
+                else if($_POST ["filter"] == 'Device Name' && $_POST ["sort"] == 'clear') {
                     $sql = "SELECT id, deviceName FROM Device WHERE 1 ORDER BY deviceName ASC";
                     $result = $conn->query($sql);
                     
@@ -164,7 +165,7 @@
                  }
                  
                  //filter by availability
-                else if($_POST ["filter"] == 'Available Device') {
+                else if($_POST ["filter"] == 'Available Device' && $_POST ["sort"] == 'clear') {
                     $sql = "SELECT id, deviceName, status FROM Device WHERE status ='Available'";
                     $result = $conn->query($sql);
                     
@@ -185,22 +186,168 @@
                  // combinations of filter and sorting
                  //////////
                  
-                // else if ($_POST ["sort"] == "Device Name" && $_POST ["filter"] == "Device Name") {
-                //     $sql = "SELECT id, deviceName, status FROM Device WHERE 1 ORDER BY ASC";
-                //     $result = $conn->query($sql);
+                 
+                 //name|name
+                if ($_POST ["sort"] == "Device Name" && $_POST ["filter"] == "Device Name") {
+                    $sql = "SELECT id, deviceName FROM Device WHERE 1 ORDER BY deviceName ASC";
+                    $result = $conn->query($sql);
                     
-                //     if ($result->num_rows > 0) {
-                //         // output data of each row
-                //         while ($row = $result->fetch_assoc()) {
-                //             echo $row["deviceName"]. "<br>";
-                //             "<br>";
-                //         }
-                //     } else {
-                //         echo "0 results";
-                //     }
-                //     // $conn->close();
-                //  }
-     
+                    if ($result->num_rows > 0) {
+                        // output data of each row
+                        while ($row = $result->fetch_assoc()) {
+                             echo $row["deviceName"]. "<br>";
+                            "<br>";
+                        }
+                    } else {
+                        echo "0 results";
+                    }
+                    // $conn->close();
+                 }
+                //name|avail
+                else if ($_POST ["sort"] == "Device Name" && $_POST ["filter"] == "Available Device") {
+                    $sql = "SELECT id, deviceName, status FROM Device WHERE status='Available' ORDER BY deviceName ASC";
+                    $result = $conn->query($sql);
+                    
+                    if ($result->num_rows > 0) {
+                        // output data of each row
+                        while ($row = $result->fetch_assoc()) {
+                            echo $row["deviceName"]. " | ". $row["status"]. "<br>";
+                            "<br>";
+                        }
+                    } else {
+                        echo "0 results";
+                    }
+                    // $conn->close();
+                 }
+                 //name|computer
+                else if ($_POST ["sort"] == "Device Name" && $_POST ["filter"] == "Computer") {
+                    $sql = "SELECT id, deviceName, deviceType FROM Device WHERE deviceType = 'Computer' ORDER BY deviceName ASC";
+                    $result = $conn->query($sql);
+                    
+                    if ($result->num_rows > 0) {
+                        // output data of each row
+                        while ($row = $result->fetch_assoc()) {
+                             echo "Item: ". $row["deviceName"]. " | Device: ". $row["deviceType"]. "<br>";
+                            "<br>";
+                        }
+                    } else {
+                        echo "0 results";
+                    }
+                    // $conn->close();
+                 }
+                 
+                 //name|tablet
+                else if ($_POST ["sort"] == "Device Name" && $_POST ["filter"] == "Tablet") {
+                    $sql = "SELECT id, deviceName, deviceType FROM Device WHERE deviceType = 'Tablet' ORDER BY deviceName ASC";
+                    $result = $conn->query($sql);
+                    
+                    if ($result->num_rows > 0) {
+                        // output data of each row
+                        while ($row = $result->fetch_assoc()) {
+                             echo "Item: ". $row["deviceName"]. " | Device: ". $row["deviceType"]. "<br>";
+                            "<br>";
+                        }
+                    } else {
+                        echo "0 results";
+                    }
+                    // $conn->close();
+                 }
+                 //name|connector
+                else if ($_POST ["sort"] == "Device Name" && $_POST ["filter"] == "Connector") {
+                    $sql = "SELECT id, deviceName, deviceType FROM Device WHERE deviceType = 'Connector' ORDER BY deviceName ASC";
+                    $result = $conn->query($sql);
+                    
+                    if ($result->num_rows > 0) {
+                        // output data of each row
+                        while ($row = $result->fetch_assoc()) {
+                             echo "Item: ". $row["deviceName"]. " | Device: ". $row["deviceType"]. "<br>";
+                            "<br>";
+                        }
+                    } else {
+                        echo "0 results";
+                    }
+                    // $conn->close();
+                 }
+                 //price|name
+                else if ($_POST ["sort"] == "Device Price" && $_POST ["filter"] == "Device Name") {
+                    $sql = "SELECT id, deviceName, price FROM Device WHERE 1 ORDER BY price DESC";
+                    $result = $conn->query($sql);
+                    
+                    if ($result->num_rows > 0) {
+                        // output data of each row
+                        while ($row = $result->fetch_assoc()) {
+                             echo "Item: ". $row["deviceName"]. " | $". $row["price"]. "<br>";
+                            "<br>";
+                        }
+                    } else {
+                        echo "0 results";
+                    }
+                    // $conn->close();
+                 }
+                 //price|avail
+                else if ($_POST ["sort"] == "Device Price" && $_POST ["filter"] == "Available Device") {
+                    $sql = "SELECT id, deviceName, price, status FROM Device WHERE status='Available' ORDER BY price DESC";
+                    $result = $conn->query($sql);
+                    
+                    if ($result->num_rows > 0) {
+                        // output data of each row
+                        while ($row = $result->fetch_assoc()) {
+                             echo "Item: ". $row["deviceName"]. " | $". $row["price"]. " | ". $row["status"]."<br>";
+                            "<br>";
+                        }
+                    } else {
+                        echo "0 results";
+                    }
+                    // $conn->close();
+                 }
+                 //price|Computer
+                else if ($_POST ["sort"] == "Device Price" && $_POST ["filter"] == "Computer") {
+                    $sql = "SELECT id, deviceName, price, deviceType FROM Device WHERE deviceType='Computer' ORDER BY price DESC";
+                    $result = $conn->query($sql);
+                    
+                    if ($result->num_rows > 0) {
+                        // output data of each row
+                        while ($row = $result->fetch_assoc()) {
+                             echo "Item: ". $row["deviceName"]. " | $". $row["price"]. " | ". "Device: ".$row["deviceType"]."<br>";
+                            "<br>";
+                        }
+                    } else {
+                        echo "0 results";
+                    }
+                    // $conn->close();
+                 }
+                 //price|Tablet
+                 else if ($_POST ["sort"] == "Device Price" && $_POST ["filter"] == "Tablet") {
+                    $sql = "SELECT id, deviceName, price, deviceType FROM Device WHERE deviceType='Tablet' ORDER BY price DESC";
+                    $result = $conn->query($sql);
+                    
+                    if ($result->num_rows > 0) {
+                        // output data of each row
+                        while ($row = $result->fetch_assoc()) {
+                             echo "Item: ". $row["deviceName"]. " | $". $row["price"]. " | ". "Device: ".$row["deviceType"]."<br>";
+                            "<br>";
+                        }
+                    } else {
+                        echo "0 results";
+                    }
+                    // $conn->close();
+                 }
+                 //price|connector
+                 else if ($_POST ["sort"] == "Device Price" && $_POST ["filter"] == "Connector") {
+                    $sql = "SELECT id, deviceName, price, deviceType FROM Device WHERE deviceType='Connector' ORDER BY price DESC";
+                    $result = $conn->query($sql);
+                    
+                    if ($result->num_rows > 0) {
+                        // output data of each row
+                        while ($row = $result->fetch_assoc()) {
+                             echo "Item: ". $row["deviceName"]. " | $". $row["price"]. " | ". "Device: ".$row["deviceType"]."<br>";
+                            "<br>";
+                        }
+                    } else {
+                        echo "0 results";
+                    }
+                    // $conn->close();
+                 }
         ?>
         
         <footer>
