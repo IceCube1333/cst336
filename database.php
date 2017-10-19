@@ -28,11 +28,12 @@
         </form>
         
         
-        <?php
-                $severname = "localhost";
-                $username = "root";
-                $password = "Maria100194";
-                $dbname = "tech_devices_app";
+        <?php  
+        
+                $severname = "us-cdbr-iron-east-05.cleardb.net";
+                $username = "b924c277a48bcc";
+                $password = "82e3f446";
+                $dbname = "heroku_e0a3be7f701d904";
                 
                 // connect to our mysql database server
                 $conn = new mysqli($servername, $username, $password, $dbname);
