@@ -292,7 +292,7 @@
                     if ($result->num_rows > 0) {
                         // output data of each row
                         while ($row = $result->fetch_assoc()) {
-                             echo "Item: ". $row["deviceName"]. " | $". $row["price"]. " | ". $row["status"]."<br>";
+                             echo "Item: ". $row["deviceName"].  " | ". $row["status"]. " | $". $row["price"]."<br>";
                             "<br>";
                         }
                     } else {
@@ -308,7 +308,7 @@
                     if ($result->num_rows > 0) {
                         // output data of each row
                         while ($row = $result->fetch_assoc()) {
-                             echo "Item: ". $row["deviceName"]. " | $". $row["price"]. " | ". "Device: ".$row["deviceType"]."<br>";
+                             echo "Item: ". $row["deviceName"].  " | ". "Device: ".$row["deviceType"]. " | $". $row["price"]."<br>";
                             "<br>";
                         }
                     } else {
@@ -324,7 +324,7 @@
                     if ($result->num_rows > 0) {
                         // output data of each row
                         while ($row = $result->fetch_assoc()) {
-                             echo "Item: ". $row["deviceName"]. " | $". $row["price"]. " | ". "Device: ".$row["deviceType"]."<br>";
+                             echo "Item: ". $row["deviceName"].  " | ". "Device: ".$row["deviceType"]. " | $". $row["price"]."<br>";
                             "<br>";
                         }
                     } else {
@@ -340,7 +340,7 @@
                     if ($result->num_rows > 0) {
                         // output data of each row
                         while ($row = $result->fetch_assoc()) {
-                             echo "Item: ". $row["deviceName"]. " | $". $row["price"]. " | ". "Device: ".$row["deviceType"]."<br>";
+                             echo "Item: ". $row["deviceName"]. " | ". "Device: ".$row["deviceType"]. " | $". $row["price"]. "<br>";
                             "<br>";
                         }
                     } else {
