@@ -28,6 +28,7 @@
             </select>
             <input type="submit" name="submit" value="Submit">
         </form>
+        <br>
            <?php
                 // include "database.php";
                 
