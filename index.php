@@ -6,16 +6,20 @@ function loginProcess() {
 
     if (isset($_POST['loginForm'])) {  //checks if form has been submitted
     
-        include '../../database.php';
+        include '../database.php';
         $conn = getDatabaseConnection();
       
             $username = $_POST['username'];
-            $password = $_POST['password'];
+            $password = sha1($_POST['password']);
             
             $sql = "SELECT *
-                    FROM Admin
-                    WHERE username = '$username'
-                    AND   password = '$password'";
+                    FROM admin
+                    WHERE userName = :username
+                    AND   password = :password";
+                    
+            $namedParameters = array();
+            $namedParameters[':username'] = $username;
+            $namedParameters[':password'] = $password;
             
             $stmt = $conn->prepare($sql);
             $stmt->execute();
@@ -27,6 +31,8 @@ function loginProcess() {
                 
             } else {
                 
+                
+                $_SESSION['username'] = $record['userName'];
                 $_SESSION['adminName'] = $record['firstName'] . " ". $record['lastName'];
                //echo $record['firstName'];
                header("Location: admin.php"); //redirecting to admin.php
