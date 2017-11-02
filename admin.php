@@ -10,7 +10,8 @@ function userList() {
     $conn = getDatabaseConnection();
     
     $sql = "SELECT *
-            FROM User";
+            FROM User
+            ORDER BY firstName";
     $stmt = $conn->prepare($sql);
     $stmt->execute();
     $records = $stmt->fetchAll(PDO::FETCH_ASSOC);
@@ -40,6 +41,11 @@ function userList() {
                 
             </form>
             
+            <form action="logout.php">
+                
+                <input type="submit" value="Logout">
+                
+            </form>
             
             <?php 
                 Users: echo"<br>";
@@ -48,8 +54,17 @@ function userList() {
                 
                 foreach($users as $user) {
                 
-                    echo $user['firstName'] . " ". $user['lastName'];
+                    echo $user['id'] . "  " . $user['firstName'] . " " . $user['lastName'];
+                    echo "[<a href='updateUser.php?userId=".$user['id']."'>Update</a>]"; 
+                    echo "[<a onclick='return confirmDelete()' href='deleteUser.php?userId=".$user['id']."'> Delete </a>] <br />";
+                    
                 }
             ?>
+            
+            <script>
+                function confirmDelete() {
+                    return confirm("Are you sure you want to delete this user?");
+                }
+            </script>
     </body>
 </html>

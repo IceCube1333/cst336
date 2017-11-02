@@ -8,7 +8,8 @@
             global $conn;
         
             $sql = "SELECT *
-                    FROM Departments ORDER BY name";
+                    FROM Departments 
+                    ORDER BY name";
             $stmt = $conn->prepare($sql);
             $stmt->execute();
             $records = $stmt->fetchAll(PDO::FETCH_ASSOC);
@@ -18,14 +19,15 @@
         }
 
 if (isset($_GET['addUser'])) { //form has been submitted
-    $sql = "INSERT INTO
+    $sql = "INSERT INTO User
                 (firstName, lastName, email, role, deptid)
             VALUES
-                (:fName, :lName, :email, :role, :deptid)";
+                (:fName, :lName, :email, :role, :phone, :deptid)";
     $np = array();
     $np[':fName'] = $_GET['firstName'];
     $np[':lName'] = $_GET['lastName'];
     $np[':email'] = $_GET['email'];
+    $np[':phone'] = $_GET['phone'];
     $np[':role'] = $_GET['role'];
     $np[':deptid'] = $_GET['deptid'];
     

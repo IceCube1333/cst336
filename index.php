@@ -22,7 +22,7 @@ function loginProcess() {
             $namedParameters[':password'] = $password;
             
             $stmt = $conn->prepare($sql);
-            $stmt->execute();
+            $stmt->execute($namedParameters);
             $record = $stmt->fetch();
             
             if (empty($record)) {
