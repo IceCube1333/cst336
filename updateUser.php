@@ -37,7 +37,7 @@ function getUserInfo() {
                     phone = :phone,
                     role = :role,
                     deptid = :deptid
-                WHERE userId = :userId";
+                WHERE id = :id";
         
         $np = array();
         $np[':fName'] = $_GET['firstName'];
@@ -101,12 +101,12 @@ function getUserInfo() {
             Department: 
             <select name="deptid">
                 <option value="" > Select One </option>
-                <option value="computer science" <?=($userInfo['name']=='Computer Science')?" selected":""?>>Staff</option>
-                <option value="student" <?=($userInfo['name']=='Student')?" selected":""?>>Student</option>
-                <option value="faculty" <?=($userInfo['name']=='Faculty')?" selected":""?>>Faculty</option>
-                <option value="staff" <?=($userInfo['name']=='Staff')?" selected":""?>>Staff</option>
-                <option value="student" <?=($userInfo['name']=='Student')?" selected":""?>>Student</option>
-                <option value="faculty" <?=($userInfo['name']=='Faculty')?" selected":""?>>Faculty</option>
+                <option value="computer science" <?=($userInfo['deptid']=='Computer Science')?" selected":""?>>Computer Science</option>
+                <option value="statistics" <?=($userInfo['deptid']=='Statistics')?" selected":""?>>Statistics</option>
+                <option value="design" <?=($userInfo['deptid']=='Design')?" selected":""?>>Design</option>
+                <option value="economics" <?=($userInfo['deptid']=='Economics')?" selected":""?>>Economics</option>
+                <option value="drama" <?=($userInfo['deptid']=='Drama')?" selected":""?>>Drama</option>
+                <option value="biology" <?=($userInfo['deptid']=='Biology')?" selected":""?>>Biology</option>
             </select>
             <input type="submit" value="Update User" name="updateUser">
             <input type="submit" name="backButton" value="Back">
