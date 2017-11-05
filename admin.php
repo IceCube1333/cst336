@@ -11,7 +11,7 @@ function userList() {
     
     $sql = "SELECT *
             FROM User
-            ORDER BY firstName";
+            ORDER BY lastName";
     $stmt = $conn->prepare($sql);
     $stmt->execute();
     $records = $stmt->fetchAll(PDO::FETCH_ASSOC);
@@ -28,6 +28,7 @@ function userList() {
 <html>
     <head>
         <title>Admin Main Page </title>
+        <link rel="stylesheet" href="css/style.css" type="text/css" />
     </head>
     <body>
 
@@ -53,13 +54,18 @@ function userList() {
                 $users = userList();
                 
                 foreach($users as $user) {
-                
+                    echo "<p>";
                     echo $user['id'] . "  " . $user['firstName'] . " " . $user['lastName'];
                     echo "[<a href='updateUser.php?userId=".$user['id']."'>Update</a>]"; 
                     echo "[<a onclick='return confirmDelete()' href='deleteUser.php?userId=".$user['id']."'> Delete </a>] <br />";
-                    
+                    echo "</p>";
                 }
             ?>
+            
+            <footer>
+               <hr>
+               CST336 Hutt &copy;2017
+            </footer>
             
             <script>
                 function confirmDelete() {

@@ -27,7 +27,7 @@ function loginProcess() {
             
             if (empty($record)) {
                 
-                echo "Wrong Username or password";
+                echo "<span>Wrong Username or password</span>";
                 
             } else {
                 
@@ -48,24 +48,30 @@ function loginProcess() {
 <html>
     <head>
         <title> Admin Login  </title>
+        <link rel="stylesheet" href="css/style.css" type="text/css" />
     </head>
     <body>
 
 
             <h1> Admin Login </h1>
             
-            <form method="post">
+            <form method="post" id="front-page">
                 
                 Username: <input type="text" name="username"/> <br />
                 
                 Password: <input type="password" name="password" /> <br />
                 
-                <input type="submit" name="loginForm" value="Login!"/>
+                <input type="submit" name="loginForm" value="Login!" id="login"/>
                 
             </form>
 
             <br />
             
             <?=loginProcess()?>
+            
+            <footer>
+               <hr>
+               CST336 Hutt &copy;2017
+            </footer>
     </body>
 </html>

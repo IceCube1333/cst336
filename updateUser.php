@@ -67,13 +67,14 @@ function getUserInfo() {
 <html>
     <head>
         <title> Update User </title>
+        <link rel="stylesheet" href="css/style.css" type="text/css" />
     </head>
     
     <body>
         <h1> Update User </h1>
     
     <h1> Tech Checkout System: Upating User's Info </h1>
-        <form method="GET">
+        <form method="GET" id="update-page">
             <input type="hidden" name="userId" value="<?=$userInfo['id']?>" />
             First Name:<input type="text" name="firstName" value="<?=$userInfo['firstName']?>"/>
             <br />
@@ -94,9 +95,20 @@ function getUserInfo() {
             Department: 
             <select name="deptid">
                 <option value="" > Select One </option>
+                <option value="computer science" <?=($userInfo['name']=='Computer Science')?" selected":""?>>Staff</option>
+                <option value="student" <?=($userInfo['name']=='Student')?" selected":""?>>Student</option>
+                <option value="faculty" <?=($userInfo['name']=='Faculty')?" selected":""?>>Faculty</option>
+                <option value="staff" <?=($userInfo['name']=='Staff')?" selected":""?>>Staff</option>
+                <option value="student" <?=($userInfo['name']=='Student')?" selected":""?>>Student</option>
+                <option value="faculty" <?=($userInfo['name']=='Faculty')?" selected":""?>>Faculty</option>
             </select>
             <input type="submit" value="Update User" name="updateUser">
         </form>    
-    
+        
+        <footer>
+               <hr>
+               CST336 Hutt &copy;2017
+        </footer>
+            
     </body>
 </html>

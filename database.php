@@ -12,6 +12,11 @@ function getDatabaseConnection()
     
     // return $dbConn;
     
+    // $host = "us-cdbr-iron-east-05.cleardb.net";
+    // $username = "b1846ceac5c213";
+    // $password = "d8b11969";
+    // $dbname = "heroku_b3293259bde7b6e";
+    
     $host = "localhost";
     $username = "swiftpaws";
     $password = "Maria100194";
