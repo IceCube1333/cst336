@@ -60,6 +60,11 @@ function getUserInfo() {
         
         // echo $userInfo['firstName'] ." ".$userInfo['lastName'];
     }
+    
+    if (isset($_GET['backButton'])) {
+    header("Location: admin.php");
+    }
+
 ?>
 
 
@@ -71,6 +76,7 @@ function getUserInfo() {
     </head>
     
     <body>
+        
         <h1> Update User </h1>
     
     <h1> Tech Checkout System: Upating User's Info </h1>
@@ -103,6 +109,7 @@ function getUserInfo() {
                 <option value="faculty" <?=($userInfo['name']=='Faculty')?" selected":""?>>Faculty</option>
             </select>
             <input type="submit" value="Update User" name="updateUser">
+            <input type="submit" name="backButton" value="Back">
         </form>    
         
         <footer>

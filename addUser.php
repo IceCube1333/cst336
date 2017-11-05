@@ -40,6 +40,10 @@ if (isset($_GET['addUser'])) {  //the add form has been submitted
     
 }
 
+if (isset($_GET['backButton'])) {
+    header("Location: admin.php");
+}
+
 ?>
 
 
@@ -50,7 +54,6 @@ if (isset($_GET['addUser'])) {  //the add form has been submitted
         <link rel="stylesheet" href="css/style.css" type="text/css" />
     </head>
     <body>
-
 
             <h1> Adding New User </h1>
 
@@ -90,6 +93,7 @@ if (isset($_GET['addUser'])) {  //the add form has been submitted
                     
                 </select>
                 <input type="submit" value="Add User" name="addUser">
+                <input type="submit" name="backButton" value="Back">
             </form>
             
             <footer>
