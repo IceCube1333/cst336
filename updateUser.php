@@ -101,7 +101,7 @@ function getUserInfo() {
             Department: 
             <select name="deptid">
                 <option value="" > Select One </option>
-                <option value="computer science" <?=($userInfo['deptid']=='Computer Science')?" selected":""?>>Computer Science</option>
+                <option value="computer science" <?=($userInfo['deptid']=='computer science')?" selected":""?>>Computer Science</option>
                 <option value="statistics" <?=($userInfo['deptid']=='Statistics')?" selected":""?>>Statistics</option>
                 <option value="design" <?=($userInfo['deptid']=='Design')?" selected":""?>>Design</option>
                 <option value="economics" <?=($userInfo['deptid']=='Economics')?" selected":""?>>Economics</option>
