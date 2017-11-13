@@ -27,3 +27,10 @@
     padding: 7px 7px !important;
     margin: 0px 2px;
 }
+
+.hinting {
+    font-size: 15px;
+   color: #fff;
+    background-color: #5cb85c;
+    border-color: #4cae4c; 
+}

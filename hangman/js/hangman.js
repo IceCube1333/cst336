@@ -1,128 +1,161 @@
-    var selectedWord = ""; 
-    var selectedHint = ""; 
-    var board = ""; 
-    var remaininGuesses = 6; 
-    var words = [{word: "snake", hint: "It's a reptile"},
-                {word: "monkey", hint: "It's a mammal"},
-                {word: "beetle", hint: "It's an insect"}]; 
-    
-    console.log(words[0]); 
-    
-    window.onload = startGame; 
-    
-    function pickWord() {
-        var randomIndex = Math.floor(Math.random() * words.length);
-        selectedWord = words[randomIndex].word.toUpperCase();
-        selectedHint = words[randomIndex].hint;
-    }
-     
-    
-
-    function initBoard() {
-        for (var letter in selectedWord) {
-            board += '_';  
-        }
-    }
-    
-    function startGame() {
-        pickWord(); 
-        initBoard(); 
-        updateBoard(); 
-        generateLetters(); 
-    }
-    
-    
-    function updateBoard() {
-        $("#word").html(""); 
-        
-        for (var letter of board) {
-            //document.getElementById("word").innerHTML += letter + " "; 
-            $("#word").append(letter + " "); 
-            
-            $("#word").append("<br/>"); 
-            $("#word").append("<span class='hint>Hint: " + selectedHint + "</span>"); 
-            
-        }
-    }
-    
-    
-    
-    function generateLetters() {
-        var alphabet = ['A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 
+// Creating an array of available letters
+var alphabet = ['A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 
                 'I', 'J', 'K', 'L', 'M', 'N', 'O', 'P', 
                 'Q', 'R', 'S', 'T', 'U', 'V', 'W', 'X', 'Y', 'Z'];
-        
-        for (var letter of alphabet) {
-            $('#letters').append("<button class='letter-btn' id='" + letter + "'>" + letter + "</button>");
-        }
-        
-        $('.letter-btn').click(function(){
-            checkLetter($(this).attr("id"));
-            disableButton($(this));
-        })
-         
 
+var words = [{ word: "snake", hint: "It's a reptile" }, 
+             { word: "monkey", hint: "It's a mammal" }, 
+             { word: "beetle", hint: "It's an insect" }];
+
+var selectedWord = "";
+var selectedHint = "";
+var board = "";
+var remainingGuesses = 6;
+
+// Begin the game when the page is fully loaded
+window.onload = startGame();
+
+
+// Create listener for the replay button
+$(".replayBtn").on("click", function() {
+    location.reload();
+});
+
+
+$("#letters").on("click", ".letter", function(){
+    checkLetter($(this).attr("id"));
+    disableButton($(this));
+});
+
+//stuff for hint button
+$("#word").on("click", ".hinting", function(){
+    hintButton($(this));
+});
+
+// Selects a word randomly from the array of available words
+function pickWord() {
+    let randInt = Math.floor(Math.random() * words.length);
+    selectedWord = words[randInt].word.toUpperCase();
+    selectedHint = words[randInt].hint;
+}
+
+
+// Creates the letters inside the letters div
+function createLetters() {
+    for (var letter of alphabet) {
+        let letterInput = '"' + letter + '"';
+        $("#letters").append("<button class='btn btn-success letter' id='" + letter + "'>" + letter + "</button>");
+    }
+}
+
+
+// Fill the board with underscores
+function initBoard() {
+    for (var letter in selectedWord) {
+        board += '_';
+    }
+}
+
+
+// Update the display board
+function updateBoard() {
+    $("#word").empty();
+    
+    for (var letter of board) {
+        $("#word").append(letter);
+        $("#word").append(' ');
     }
     
-    function checkLetter(letter)  {
-        var positions = []; 
-        
-        for (var i = 0; i < selectedWord.length; i++) {
-            if (letter == selectedWord[i]) {
-                positions.push(i); 
-            }
+    $("#word").append("<br />");
+    $("#word").append("<button class='hinting'>Hint");
+    // $("#word").append("<span class='hint'>Hint: " + selectedHint + "</span>");
+    $("#word").append("</button>");
+}
+
+
+// Update the current word then calls for a board update
+function updateWord(positions, letter) {
+    for (var pos of positions) {
+        board = replaceAt(board, pos, letter)
+    }
+    
+    updateBoard(board);
+    
+    // Check to see if this is a winning guess
+    if (!board.includes('_')) {
+        endGame(true);
+    }
+}
+
+
+// Checks to see if the selected letter exists in the selectedWord
+function checkLetter(letter) {
+    var positions = new Array();
+    
+    // Put all the positions the letter exists in an array
+    for (var i = 0; i < selectedWord.length; i++) {
+        if (letter == selectedWord[i]) {
+            positions.push(i);
         }
+    }
+    
+    // Update the game state
+    if (positions.length > 0) {
+        updateWord(positions, letter);
+    } else {
+        remainingGuesses -= 1;
+        updateMan();
         
-        debugger; 
-        
-        if (positions.length > 0) {
-            // show the letters at these positions
-            updateWord(positions, letter); 
-            if(!board.includes('_')) {
-                endGame(true);
-            }
-        } else {
-            remaininGuesses--; 
-            updateMan();
-        }
-        
-        if(remaininGuesses<=0) {
+        if (remainingGuesses <= 0) {
             endGame(false);
         }
     }
+}
+
+
+// Calculates and updates the image for our stick man
+function updateMan() {
+    $("#hangImg").attr("src", "img/stick_" + (6 - remainingGuesses) + ".png");
+}
+
+
+// Kicks off the game
+function startGame() {
+    // Appending the letter buttons
+    pickWord();
+    createLetters();
     
-    function updateWord(positions, letter) {
-        for (var pos of positions) {
-            board = replaceAt(board, pos, letter); 
-        }
-        
-        updateBoard(); 
+    // Fill up the current guess word with underscores and set the board
+    initBoard();
+    updateBoard();
+}
+
+
+// Ends the game by hiding game divs and displaying the win or loss divs
+function endGame(win) {
+    $("#letters").hide();
+    
+    if (win) {
+        $('#won').show();
+    } else {
+        $('#lost').show();
     }
-    
-    function replaceAt(str, index, value) {
-        return str.substr(0, index) + value + str.substr(index + value.length); 
-    }
-    
-    
-    function updateMan() {
-        $("#hangImg").attr("src","img/stick_" + (6- remaininGuesses) + ".png");
-    }
-    
-    function endGame(won) {
-        $("#letters").hide();
-        
-        if(win) {
-            $('#won').show();
-        } else {
-            $('#lost').show();
-        }
-    }
-    
-    // $(".replayBtn").on("click", function() {
-    //     location.reload();
-    // }
-    
-    function disableButton(btn) {
-        btn.prop("disabled",true);
-        btn.attr("class", "btn btn-danger");
-    }
+}
+
+
+// Disables the button and changes the style to tell the user it's disabled
+function disableButton(btn) {
+    btn.prop("disabled",true);
+    btn.attr("class", "btn btn-danger")
+}
+
+function hintButton(btn) {
+    $("#word").append("<span class='hint'>Hint: " + selectedHint + "</span>");
+    btn.prop("disabled", true);
+}
+
+
+// Helper function for replacing specific indexes in a string
+function replaceAt(str, index, value) {
+    return str.substr(0, index) + value + str.substr(index + value.length);
+}
