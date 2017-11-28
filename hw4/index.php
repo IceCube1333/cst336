@@ -45,6 +45,8 @@
         <script>
             $("#submit").click(function(e){
                 e.preventDefault();
+                
+                //male penguins
                if (($("input[name=gender]:checked").val() == "Male") && ($("#num option:selected").val() == "1")) {
                    $("#Form").hide();
                 //   alert("The paragraph was clicked.");
@@ -58,6 +60,22 @@
                 //   alert("The paragraph was clicked.");
                     let fullname = $("#fname").val() + " " + $("#lname").val();
                     let img="img/maleBabyPenguin3.png";
+                    
+                    $("#penguins").html("<p>"+fullname+"</p>" + "<img src='"+img+"'/>");
+               }
+               else if (($("input[name=gender]:checked").val() == "Male") && ($("#num option:selected").val() == "2")) {
+                   $("#Form").hide();
+                //   alert("The paragraph was clicked.");
+                    let fullname = $("#fname").val() + " " + $("#lname").val();
+                    let img="img/malePenguin2.png";
+                    
+                    $("#penguins").html("<p>"+fullname+"</p>" + "<img src='"+img+"'/>");
+               }
+               else if (($("input[name=gender]:checked").val() == "Male") && ($("#num option:selected").val() == "4")) {
+                   $("#Form").hide();
+                //   alert("The paragraph was clicked.");
+                    let fullname = $("#fname").val() + " " + $("#lname").val();
+                    let img="img/malePenguin4.png";
                     
                     $("#penguins").html("<p>"+fullname+"</p>" + "<img src='"+img+"'/>");
                }
