@@ -79,6 +79,41 @@
                     
                     $("#penguins").html("<p>"+fullname+"</p>" + "<img src='"+img+"'/>");
                }
+               
+               //female penguins
+               else if (($("input[name=gender]:checked").val() == "Female") && ($("#num option:selected").val() == "1")) {
+                   $("#Form").hide();
+                //   alert("The paragraph was clicked.");
+                    let fullname = $("#fname").val() + " " + $("#lname").val();
+                    let img="img/femaleBabyPenguin1.png";
+                    
+                    $("#penguins").html("<p>"+fullname+"</p>" + "<img src='"+img+"'/>");
+               }
+               else if (($("input[name=gender]:checked").val() == "Female") && ($("#num option:selected").val() == "3")) {
+                   $("#Form").hide();
+                //   alert("The paragraph was clicked.");
+                    let fullname = $("#fname").val() + " " + $("#lname").val();
+                    let img="img/femaleBabyPenguin3.png";
+                    
+                    $("#penguins").html("<p>"+fullname+"</p>" + "<img src='"+img+"'/>");
+               }
+               else if (($("input[name=gender]:checked").val() == "Female") && ($("#num option:selected").val() == "2")) {
+                   $("#Form").hide();
+                //   alert("The paragraph was clicked.");
+                    let fullname = $("#fname").val() + " " + $("#lname").val();
+                    let img="img/femalePenguin2.png";
+                    
+                    $("#penguins").html("<p>"+fullname+"</p>" + "<img src='"+img+"'/>");
+               }
+               else if (($("input[name=gender]:checked").val() == "Female") && ($("#num option:selected").val() == "4")) {
+                   $("#Form").hide();
+                //   alert("The paragraph was clicked.");
+                    let fullname = $("#fname").val() + " " + $("#lname").val();
+                    let img="img/femalePenguin4.png";
+                    
+                    $("#penguins").html("<p>"+fullname+"</p>" + "<img src='"+img+"'/>");
+               }
+               
             });
             
         </script>
