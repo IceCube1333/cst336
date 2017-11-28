@@ -2,21 +2,6 @@ body {
     text-align: center;
     margin: 0px;
 }
-
-nav {
-    text-align: left;
-    font-size: 1.5em;
-}
-
-nav a {
-    color:blue;
-    text-decoration: underline;
-    background-color: cyan;
-    padding: 10px;
-    padding-bottom: 0px;
-    
-}
-
 header {
     font-family: sans-serif;
 }
@@ -83,15 +68,6 @@ div {
     margin-bottom: 15px;
 }
 
-#submit {
-    text-align: center;
-    color:white;
-    background-color: blue;
-    border-color: blue;
-    width: 80px;
-    height: 30px;
-    margin-bottom: 15px;
-}
 
 footer {
     font-size: 10px;
