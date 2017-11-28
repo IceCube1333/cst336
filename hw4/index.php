@@ -28,6 +28,7 @@
                 <p id="fetitle">Female</p><br/>
                 <p id="selector">Choose a Number</p>
                 <select name="numbers" id="num">
+                    <option value=""> </option>
                     <option value="1">1</option>
                     <option value="2">2</option>
                     <option value="3">3</option>
@@ -42,81 +43,7 @@
         <div id="penguins"></div>
         
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-        <script>
-            $("#submit").click(function(e){
-                e.preventDefault();
-                
-                //male penguins
-               if (($("input[name=gender]:checked").val() == "Male") && ($("#num option:selected").val() == "1")) {
-                   $("#Form").hide();
-                //   alert("The paragraph was clicked.");
-                    let fullname = $("#fname").val() + " " + $("#lname").val();
-                    let img="img/maleBabyPenguin1.png";
-                    
-                    $("#penguins").html("<p>"+fullname+"</p>" + "<img src='"+img+"'/>");
-               }
-               else if (($("input[name=gender]:checked").val() == "Male") && ($("#num option:selected").val() == "3")) {
-                   $("#Form").hide();
-                //   alert("The paragraph was clicked.");
-                    let fullname = $("#fname").val() + " " + $("#lname").val();
-                    let img="img/maleBabyPenguin3.png";
-                    
-                    $("#penguins").html("<p>"+fullname+"</p>" + "<img src='"+img+"'/>");
-               }
-               else if (($("input[name=gender]:checked").val() == "Male") && ($("#num option:selected").val() == "2")) {
-                   $("#Form").hide();
-                //   alert("The paragraph was clicked.");
-                    let fullname = $("#fname").val() + " " + $("#lname").val();
-                    let img="img/malePenguin2.png";
-                    
-                    $("#penguins").html("<p>"+fullname+"</p>" + "<img src='"+img+"'/>");
-               }
-               else if (($("input[name=gender]:checked").val() == "Male") && ($("#num option:selected").val() == "4")) {
-                   $("#Form").hide();
-                //   alert("The paragraph was clicked.");
-                    let fullname = $("#fname").val() + " " + $("#lname").val();
-                    let img="img/malePenguin4.png";
-                    
-                    $("#penguins").html("<p>"+fullname+"</p>" + "<img src='"+img+"'/>");
-               }
-               
-               //female penguins
-               else if (($("input[name=gender]:checked").val() == "Female") && ($("#num option:selected").val() == "1")) {
-                   $("#Form").hide();
-                //   alert("The paragraph was clicked.");
-                    let fullname = $("#fname").val() + " " + $("#lname").val();
-                    let img="img/femaleBabyPenguin1.png";
-                    
-                    $("#penguins").html("<p>"+fullname+"</p>" + "<img src='"+img+"'/>");
-               }
-               else if (($("input[name=gender]:checked").val() == "Female") && ($("#num option:selected").val() == "3")) {
-                   $("#Form").hide();
-                //   alert("The paragraph was clicked.");
-                    let fullname = $("#fname").val() + " " + $("#lname").val();
-                    let img="img/femaleBabyPenguin3.png";
-                    
-                    $("#penguins").html("<p>"+fullname+"</p>" + "<img src='"+img+"'/>");
-               }
-               else if (($("input[name=gender]:checked").val() == "Female") && ($("#num option:selected").val() == "2")) {
-                   $("#Form").hide();
-                //   alert("The paragraph was clicked.");
-                    let fullname = $("#fname").val() + " " + $("#lname").val();
-                    let img="img/femalePenguin2.png";
-                    
-                    $("#penguins").html("<p>"+fullname+"</p>" + "<img src='"+img+"'/>");
-               }
-               else if (($("input[name=gender]:checked").val() == "Female") && ($("#num option:selected").val() == "4")) {
-                   $("#Form").hide();
-                //   alert("The paragraph was clicked.");
-                    let fullname = $("#fname").val() + " " + $("#lname").val();
-                    let img="img/femalePenguin4.png";
-                    
-                    $("#penguins").html("<p>"+fullname+"</p>" + "<img src='"+img+"'/>");
-               }
-               
-            });
-            
-        </script>
+        <script src=penguins.js></script>
         
         
         <footer>
