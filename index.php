@@ -6,7 +6,50 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
     <!--<script src="https://code.jquery.com/jquery-3.1.0.js"></script>-->
+    
+    <title>Sign-up</title>
+    
+</head>
 
+
+
+<body id="dummybodyid">
+
+   <h1> Sign Up Form </h1>
+
+    <div class="container">
+        <form onsubmit="return false;">
+            <fieldset>
+               <!--<legend>Sign Up</legend>-->
+                First Name:  <input type="text" class="form-control"> 
+                Last Name:   <input type="text" class="form-control"> <br>
+                Email:       <input type="text" class="form-control">
+                Phone Number: <input type="text"class="form-control"><br>
+                Zip Code:    <input id="zip" onchange="getCityInfo();" type="text" class="form-control"><span id="zip-code-error-msg"></span><br>
+                City:  <span id="city"></span>
+                <br>
+                Latitude: <span id="lon"></span>
+                <br>
+                Longitude: <span id="lat"></span>
+                <br>
+                State: 
+                <select onchange="getCountyInfo();" id="stateList" name="stateList">
+                  <option value="ca">California</option>
+                  <option value="nv">Nevada</option>
+                  <option value="wa">Washington</option>
+                  <option value="or">Oregon</option>
+                </select>
+                Select a County: <select id="county-list"></select><br><br>
+                
+                Desired Username: <input onchange="validateUsername();" id='username' type="text" class="form-control"> <span id="username-valid"></span></span><br>
+                Password: <input type="password" class="form-control">
+                Type Password Again: <input type="password" class="form-control"><br>
+                 <button type="button" class="btn btn-info">Sign up!</button>
+                <!--<input type="submit" value="Sign up!">-->
+            </fieldset>
+        </form>
+    </div>
+    
     <script>
         function getCityInfo() {
         
@@ -89,46 +132,6 @@
             });
                 }
     </script>
-</head>
-
-
-
-<body id="dummybodyid">
-
-   <h1> Sign Up Form </h1>
-
-    <div class="container">
-        <form onsubmit="return false;">
-            <fieldset>
-               <!--<legend>Sign Up</legend>-->
-                First Name:  <input type="text" class="form-control"> 
-                Last Name:   <input type="text" class="form-control"> <br>
-                Email:       <input type="text" class="form-control">
-                Phone Number: <input type="text"class="form-control"><br>
-                Zip Code:    <input id="zip" onchange="getCityInfo();" type="text" class="form-control"><span id="zip-code-error-msg"></span><br>
-                City:  <span id="city"></span>
-                <br>
-                Latitude: <span id="lon"></span>
-                <br>
-                Longitude: <span id="lat"></span>
-                <br>
-                State: 
-                <select onchange="getCountyInfo();" id="stateList" name="stateList">
-                  <option value="ca">California</option>
-                  <option value="nv">Nevada</option>
-                  <option value="wa">Washington</option>
-                  <option value="or">Oregon</option>
-                </select>
-                Select a County: <select id="county-list"></select><br><br>
-                
-                Desired Username: <input onchange="validateUsername();" id='username' type="text" class="form-control"> <span id="username-valid"></span></span><br>
-                Password: <input type="password" class="form-control">
-                Type Password Again: <input type="password" class="form-control"><br>
-                 <button type="button" class="btn btn-info">Sign up!</button>
-                <!--<input type="submit" value="Sign up!">-->
-            </fieldset>
-        </form>
-    </div>
 </body>
 
 </html>
