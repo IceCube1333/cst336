@@ -1,3 +1,10 @@
+<?php
+session_start();
+if(!isset($_SESSION['username'])) { // checks if admin is logged in
+    header("Location: index.php");
+}
+
+?>
 <html>
     <head>
         <title>DND Gatcha</title>
