@@ -51,7 +51,7 @@
         <div class="carousel-inner">
     
           <div class="item active">
-            <img src="photos/grandheroes.jpg" alt="grandhereoes" style="width:100%;">
+            <a href="grandheroes.php"><img src="photos/grandheroes.jpg" alt="grandhereoes" style="width:100%;"></a>
             <div class="carousel-caption">
               <h3>Grand Heroes</h3>
               <p>Roll for an opportunity for grand loot!</p>
@@ -59,7 +59,7 @@
           </div>
     
           <div class="item">
-            <img src="photos/royalty.jpg" alt="royal" style="width:100%;">
+            <a href="royals.php"><img src="photos/royalty.jpg" alt="royal" style="width:100%;"></a>
             <div class="carousel-caption">
               <h3>Royals</h3>
               <p>Roll for an opportunity for royal loot!</p>
@@ -67,7 +67,7 @@
           </div>
         
           <div class="item">
-            <img src="photos/angels&demons.jpg" alt="angels&demons" style="width:100%;">
+            <a href="angels&demons.php"><img src="photos/angels&demons.jpg" alt="angels&demons" style="width:100%;"></a>
             <div class="carousel-caption">
               <h3>Angels & Demons</h3>
               <p>Roll for an opportunity for angelic and demonic loot!</p>
