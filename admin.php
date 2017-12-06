@@ -29,26 +29,18 @@
             <li><a href="angels&demons.php">Angels & Demons</a></li>
           </ul>
           <ul class="nav navbar-nav navbar-right">
-            <li class="active"><a href="admin.php"><span class="glyphicon glyphicon-log-in"></span> Login</a></li>
+            <li><a href="adminLogin.php"><span class="glyphicon glyphicon-log-in"></span> Login</a></li>
           </ul>
         </div>
       </div>
     </nav> 
     
-            <h1> Admin Login </h1>
-            
-            <form method="post" id="login">
-                
-                Username: <input type="text" name="username"/> <br />
-                
-                Password: <input type="password" name="password" /> <br />
-                
-                <input type="submit" name="loginForm" value="Login" id="login"/>
-                
-            </form>
+    <h1> Admin Main </h1>
+    <h2> Welcome <?=$_SESSION['adminName']?>!</h2>
     
-    
-    
-    
+    <form action="logout.php">
+        <input type="submit" value="Logout">
+    </form>
+
 </body>
 </html>

@@ -29,7 +29,7 @@
             <li class="active"><a href="angels&demons.php">Angels & Demons</a></li>
           </ul>
           <ul class="nav navbar-nav navbar-right">
-            <li><a href="admin.php"><span class="glyphicon glyphicon-log-in"></span> Login</a></li>
+            <li><a href="adminLogin.php"><span class="glyphicon glyphicon-log-in"></span> Login</a></li>
           </ul>
         </div>
       </div>
