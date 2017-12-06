@@ -4,8 +4,8 @@
         
         // make new database
         $host = "us-cdbr-iron-east-05.cleardb.net";
-        $username = "bc72cd9f7b4a55";
-        $password = "e91b1c70";
+        $username = "b38412b4d2cec8";
+        $password = "8b8683b0";
         $dbname = "heroku_4432619d892eb4f";
         
         // Create connection
