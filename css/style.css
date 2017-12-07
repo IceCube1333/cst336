@@ -1,7 +1,8 @@
-h2 {
+
+
+h1, h2 {
     text-align: center;
 }
-
 
 #gheroes, #royalty, #angDem {
     margin-left: 23%;
