@@ -12,7 +12,7 @@ function getUserInfo() {
     
     $sql = "SELECT *
             FROM grandheroes 
-            WHERE itemName=". $_GET['userId'];
+            WHERE itemName='" .$_GET['itemName']."'";
     $stmt = $conn->prepare($sql);
     $stmt->execute();
     $records = $stmt->fetch(PDO::FETCH_ASSOC);
@@ -24,23 +24,19 @@ function getUserInfo() {
     
     if(isset($_GET['updateUser'])) {
         // echo "Form has been submitted!";
-        $sql = "UPDATE User
-                SET firstName = :fName,
-                    lastName = :lName,
-                    email = :email,
-                    phone = :phone,
-                    role = :role,
-                    deptid = :deptid
-                WHERE id = :id";
+        $sql = "UPDATE grandheroes
+                SET itemName = :fName,
+                    itemDescription = :lName,
+                    rarity = :email,
+                    costIfSold = :phone,
+                WHERE itemName = :id";
         
         $np = array();
         $np[':fName'] = $_GET['firstName'];
         $np[':lName'] = $_GET['lastName'];
         $np[':email'] = $_GET['email'];
         $np[':phone'] = $_GET['phone'];
-        $np[':role'] = $_GET['role'];
-        $np[':deptid'] = $_GET['deptid'];
-        $np[':id'] = $_GET['userId'];
+        $np[':id'] = $_GET['itemName'];
         
         
         $stmt = $conn->prepare($sql);
@@ -49,7 +45,7 @@ function getUserInfo() {
         echo "Record has been updated!";
     }
     
-    if (isset($_GET['userId'])) {
+    if (isset($_GET['itemName'])) {
         $userInfo = getUserInfo();
     }
     
@@ -72,14 +68,14 @@ function getUserInfo() {
     
     <h1> Tech Checkout System: Upating User's Info </h1>
         <form method="GET" id="update-page">
-            <input type="hidden" name="userId" value="<?=$userInfo['itemName']?>" />
-            Item Name:<input type="text" name="firstName" value="<?=$userInfo['firstName']?>"/>
+            <input type="hidden" name="itemName" value="<?=$userInfo['itemName']?>" />
+            Item Name:<input type="text" name="firstName" value="<?=$userInfo['itemName']?>"/>
             <br />
-            Item Description:<input type="text" name="lastName" value="<?=$userInfo['lastName']?>"/>
+            Item Description:<input type="text" name="lastName" value="<?=$userInfo['itemDescription']?>"/>
             <br/>
-            Rating: <input type= "email" name ="email" value="<?=$userInfo['email']?>"/>
+            Rating: <input type= "text" name ="email" value="<?=$userInfo['rarity']?>"/>
             <br/>
-            Cost if Sold: <input type ="text" name= "phone" value="<?=$userInfo['phone']?>"/>
+            Cost if Sold: <input type ="text" name= "phone" value="<?=$userInfo['costIfSold']?>"/>
             <br />
             <input type="submit" value="Update User" name="updateUser">
             <input type="submit" name="backButton" value="Back">

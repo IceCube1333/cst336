@@ -4,8 +4,23 @@ if(!isset($_SESSION['username'])) { // checks if admin is logged in
     header("Location: index.php");
 }
 
+
+function avgGrand() {
+      include 'database.php';
+    $conn = getDatabaseConnection();
+
+    $sql = "SELECT AVG(costIfSold) FROM grandheroes";
+    $stmt = $conn->prepare($sql);
+    $stmt->execute();
+    $records = $stmt->fetchAll(PDO::FETCH_ASSOC);
+   
+//   print_r($records);
+    return $records;
+}
+
+
 function grandList() {
-    include 'database.php';
+    // include 'database.php';
     $conn = getDatabaseConnection();
     
     $sql = "SELECT *
@@ -19,6 +34,20 @@ function grandList() {
     return $records;
 }
 
+function avgRoyal() {
+      // include 'database.php';
+    $conn = getDatabaseConnection();
+
+    $sql = "SELECT AVG(costIfSold) FROM royals";
+    $stmt = $conn->prepare($sql);
+    $stmt->execute();
+    $records = $stmt->fetchAll(PDO::FETCH_ASSOC);
+   
+//   print_r($records);
+    return $records;
+}
+
+
 function royalList() {
     // include 'database.php';
     $conn = getDatabaseConnection();
@@ -26,6 +55,19 @@ function royalList() {
     $sql = "SELECT *
             FROM royals
             ORDER BY itemName";
+    $stmt = $conn->prepare($sql);
+    $stmt->execute();
+    $records = $stmt->fetchAll(PDO::FETCH_ASSOC);
+   
+//   print_r($records);
+    return $records;
+}
+
+function avgAd() {
+      // include 'database.php';
+    $conn = getDatabaseConnection();
+
+    $sql = "SELECT AVG(costIfSold) FROM angelsdemons";
     $stmt = $conn->prepare($sql);
     $stmt->execute();
     $records = $stmt->fetchAll(PDO::FETCH_ASSOC);
@@ -48,6 +90,8 @@ function adList() {
 //   print_r($records);
     return $records;
 }
+
+
 
 
 ?>
@@ -134,15 +178,20 @@ function adList() {
                   echo "Grand Heroes: ";echo"<br> <br>";
                   
                   echo "<form action='addItemGH.php'>";
-                  echo  "<input type='submit' value='Add new user'>";
+                  echo  "<input type='submit' value='Add new item'>";
                   echo "</form>";
+                  
+                  $users = avgGrand();
+                  foreach ($users as $user)
+                    echo "<p>Average gold: ".$user['AVG(costIfSold)']. "g</p>". "<br>";
+                  
                   $users = grandList();
                   
                   foreach($users as $user) {
                       // echo "<div id='gh'>";
                       echo $user['itemName'] . "  " . $user['rarity'] . "<br>";
-                      echo "[<a href='updateItem.php?userId=".$user['itemName']."'>Update</a>]"; 
-                      echo "[<a onclick='return confirmDelete()' href='deleteItem.php?userId=".$user['itemName']."'> Delete </a>] <br />";
+                      echo "[<a href='updateItem.php?itemName=".$user['itemName']."'>Update</a>]"; 
+                      echo "[<a onclick='return confirmDelete()' href='deleteItem.php?itemName=".$user['itemName']."'> Delete </a>] <br />";
                       // echo "</div>";
                   }
                 echo "</div>";  
@@ -151,6 +200,10 @@ function adList() {
                 echo "<div class='col-sm-4'>";
                 // echo "<div id='roy'>";
                   echo "Royals: "; echo "<br> <br>";
+                  
+                  $users = avgRoyal();
+                  foreach ($users as $user)
+                    echo "<p>Average gold: ". "<br>".$user['AVG(costIfSold)']. "g</p>". "<br>";
                   
                   $users = royalList();
                   
@@ -167,6 +220,10 @@ function adList() {
                 echo "<div class='col-sm-4'>";
                 // echo "<div id='ad'>";
                   echo "Angels & Demons: "; echo "<br> <br>";
+                  
+                  $users = avgAd();
+                  foreach ($users as $user)
+                    echo "<p>Average gold: "."<br>".$user['AVG(costIfSold)']. "g</p>". "<br>";
                   
                   $users = adList();
                   

@@ -4,7 +4,7 @@
     $conn = getDatabaseConnection();
   
     $sql = "DELETE FROM grandheroes
-          WHERE itemName = " .$_GET['userId'];
+          WHERE itemName = '" .$_GET['itemName']."'";
           
     $stmt = $conn->prepare($sql);
     $stmt->execute();
