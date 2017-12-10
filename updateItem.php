@@ -58,15 +58,15 @@ function getUserInfo() {
 
 <html>
     <head>
-        <title> Update User </title>
+        <title> Update Item in Grand Heroes </title>
         <link rel="stylesheet" href="css/style.css" type="text/css" />
     </head>
     
     <body>
         
-        <h1> Update User </h1>
+        <h1> Update Item in Grand Heroes </h1>
     
-    <h1> Tech Checkout System: Upating User's Info </h1>
+    <!--<h1> Tech Checkout System: Upating User's Info </h1>-->
         <form method="GET" id="update-page">
             <input type="hidden" name="itemName" value="<?=$userInfo['itemName']?>" />
             Item Name:<input type="text" name="firstName" value="<?=$userInfo['itemName']?>"/>

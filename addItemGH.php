@@ -19,7 +19,7 @@ if (isset($_GET['addUser'])) {  //the add form has been submitted
     $stmt=$conn->prepare($sql);
     $stmt->execute($np);
     
-    echo "User was added!";
+    echo "New item was added!";
     
 }
 if (isset($_GET['backButton'])) {
@@ -31,14 +31,14 @@ if (isset($_GET['backButton'])) {
 <!DOCTYPE html>
 <html>
     <head>
-        <title>Admin: Add new user</title>
+        <title>Admin: Add new item to Grand Heroes</title>
         <link rel="stylesheet" href="css/style.css" type="text/css" />
     </head>
     <body>
 
-            <h1> Adding New User </h1>
+            <h1> Adding New Item to Grand Heroes </h1>
 
-            <h2> Tech Checkout System: Adding a New User </h2>
+            <!--<h2> Tech Checkout System: Adding a New User </h2>-->
     
             <form method="GET">
                 Item Name:<input type="text" name="firstName" />
