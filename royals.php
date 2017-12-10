@@ -45,6 +45,10 @@
             <button type="button" class="btn btn-info" onclick="">10 Roll</button>
         </div>    
     </form>    
-    
+    <!--<br>-->
+    <!--<br>-->
+    <!--<footer class="container-fluid text-center">-->
+    <!--  <p>CST336. 2017&copy; Hutt </p>-->
+    <!--</footer> -->
 </body>
 </html>

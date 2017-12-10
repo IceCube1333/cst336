@@ -5,6 +5,8 @@ if(!isset($_SESSION['username'])) { // checks if admin is logged in
 }
 
 ?>
+
+
 <html>
     <head>
         <title>DND Gatcha</title>
@@ -46,30 +48,32 @@ if(!isset($_SESSION['username'])) { // checks if admin is logged in
     <h2> Welcome <?=$_SESSION['adminName']?>!</h2>
     
     <div class="col-sm-3 well">
-      <div class="well">
-        <button type="button" class="btn btn-info">Grand Heroes</button>
-        <!--<img src="bird.jpg" class="img-circle" height="65" width="65" alt="Avatar">-->
-      </div>
-      <div class="well">
-        <button type="button" class="btn btn-info">Royals</button>
-      </div>
-      <div class="well">
-        <button type="button" class="btn btn-info">Angels & Demons</button>
-      </div>
-      <div class="well">
-        <button type="button" class="btn btn-primary disabled">Coming Soon</button>
-      </div>
-      <div class="well">
-        <button type="button" class="btn btn-primary disabled">Coming Soon</button>
-      </div>
-      <div class="well">
-        <button type="button" class="btn btn-primary disabled">Coming Soon</button>
-      </div>
-      <!--<div class="alert alert-success fade in">-->
-      <!--  <a href="#" class="close" data-dismiss="alert" aria-label="close">×</a>-->
-        <!--<p><strong>Ey!</strong></p>-->
-        <!--People are looking at your profile. Find out who.-->
-      </div>
+      <!--<form>-->
+        <div class="well">
+          <button type="button" class="btn btn-info" onclick="grandHer()">Grand Heroes</button>
+          <!--<img src="bird.jpg" class="img-circle" height="65" width="65" alt="Avatar">-->
+        </div>
+        <div class="well">
+          <button type="button" class="btn btn-info">Royals</button>
+        </div>
+        <div class="well">
+          <button type="button" class="btn btn-info">Angels & Demons</button>
+        </div>
+        <div class="well">
+          <button type="button" class="btn btn-primary disabled">Coming Soon</button>
+        </div>
+        <div class="well">
+          <button type="button" class="btn btn-primary disabled">Coming Soon</button>
+        </div>
+        <div class="well">
+          <button type="button" class="btn btn-primary disabled">Coming Soon</button>
+        </div>
+        <!--<div class="alert alert-success fade in">-->
+        <!--  <a href="#" class="close" data-dismiss="alert" aria-label="close">×</a>-->
+          <!--<p><strong>Ey!</strong></p>-->
+          <!--People are looking at your profile. Find out who.-->
+        </div>
+      <!--</form>-->
     </div>
     
     <span id="gatchaInfo">Future gatcha Info to be displayed</span>
@@ -77,6 +81,32 @@ if(!isset($_SESSION['username'])) { // checks if admin is logged in
     <form action="logout.php">
         <input type="submit" value="Logout">
     </form>
+
+    <script>
+      function grandHer() {
+        // alert("anything?");
+        $.ajax({
+                    type: "get",
+                    url: "functions.php",
+                    dataType: "json",
+                    data: {
+                        // "zip_code": $("#zip").val()
+                        'action': 'grandheroes'
+                    },
+                    success: function(data,status) {
+                        
+                        
+                        // if (data.length > 0) {
+                          alert("please work");
+                        // }
+                        
+                    },
+                    complete: function(data,status) { //optional, used for debugging purposes
+                        //alert(status);
+                    }
+                });
+      }
+    </script>
 
 </body>
 </html>

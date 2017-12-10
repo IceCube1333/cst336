@@ -46,6 +46,9 @@
         </div>    
     </form>   
     
+    <!--<footer class="container-fluid text-center">-->
+    <!--    <p>CST336. 2017&copy; Hutt </p>-->
+    <!--</footer>     -->
     
 </body>
 </html>
