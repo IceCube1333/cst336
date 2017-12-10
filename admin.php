@@ -18,6 +18,19 @@ function avgGrand() {
     return $records;
 }
 
+function avgGrandR() {
+      // include 'database.php';
+    $conn = getDatabaseConnection();
+
+    $sql = "SELECT AVG(rarity) FROM grandheroes";
+    $stmt = $conn->prepare($sql);
+    $stmt->execute();
+    $records = $stmt->fetchAll(PDO::FETCH_ASSOC);
+   
+//   print_r($records);
+    return $records;
+}
+
 
 function grandList() {
     // include 'database.php';
@@ -39,6 +52,18 @@ function avgRoyal() {
     $conn = getDatabaseConnection();
 
     $sql = "SELECT AVG(costIfSold) FROM royals";
+    $stmt = $conn->prepare($sql);
+    $stmt->execute();
+    $records = $stmt->fetchAll(PDO::FETCH_ASSOC);
+   
+//   print_r($records);
+    return $records;
+}
+function avgRoyalR() {
+      // include 'database.php';
+    $conn = getDatabaseConnection();
+
+    $sql = "SELECT AVG(rarity) FROM royals";
     $stmt = $conn->prepare($sql);
     $stmt->execute();
     $records = $stmt->fetchAll(PDO::FETCH_ASSOC);
@@ -68,6 +93,19 @@ function avgAd() {
     $conn = getDatabaseConnection();
 
     $sql = "SELECT AVG(costIfSold) FROM angelsdemons";
+    $stmt = $conn->prepare($sql);
+    $stmt->execute();
+    $records = $stmt->fetchAll(PDO::FETCH_ASSOC);
+   
+//   print_r($records);
+    return $records;
+}
+
+function avgAdR() {
+      // include 'database.php';
+    $conn = getDatabaseConnection();
+
+    $sql = "SELECT AVG(rarity) FROM angelsdemons";
     $stmt = $conn->prepare($sql);
     $stmt->execute();
     $records = $stmt->fetchAll(PDO::FETCH_ASSOC);
@@ -176,14 +214,18 @@ function adList() {
                 echo "<div class='col-sm-4'>";
                 // echo "<div id='gh'>";
                   echo "Grand Heroes: ";echo"<br> <br>";
+                  $users = avgGrand();
+                  foreach ($users as $user)
+                    echo "<p>Average gold: ".$user['AVG(costIfSold)']. "g</p>";
+                  
+                  $users = avgGrandR();
+                  foreach ($users as $user)
+                    echo "<p>Average rating: ".$user['AVG(rarity)']. "*</p>". "<br>";
                   
                   echo "<form action='addItemGH.php'>";
                   echo  "<input type='submit' value='Add new item'>";
                   echo "</form>";
                   
-                  $users = avgGrand();
-                  foreach ($users as $user)
-                    echo "<p>Average gold: ".$user['AVG(costIfSold)']. "g</p>". "<br>";
                   
                   $users = grandList();
                   
@@ -203,7 +245,11 @@ function adList() {
                   
                   $users = avgRoyal();
                   foreach ($users as $user)
-                    echo "<p>Average gold: ". "<br>".$user['AVG(costIfSold)']. "g</p>". "<br>";
+                    echo "<p>Average gold: ". "<br>".$user['AVG(costIfSold)']. "g</p>";
+                  
+                  $users = avgRoyalR();
+                  foreach ($users as $user)
+                    echo "<p>Average rating: ".$user['AVG(rarity)']. "*</p>". "<br>";
                   
                   $users = royalList();
                   
@@ -223,7 +269,11 @@ function adList() {
                   
                   $users = avgAd();
                   foreach ($users as $user)
-                    echo "<p>Average gold: "."<br>".$user['AVG(costIfSold)']. "g</p>". "<br>";
+                    echo "<p>Average gold: "."<br>".$user['AVG(costIfSold)']. "g</p>";
+                  
+                  $users = avgAdR();
+                  foreach ($users as $user)
+                    echo "<p>Average rating: ".$user['AVG(rarity)']. "*</p>". "<br>";
                   
                   $users = adList();
                   

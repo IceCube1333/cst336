@@ -28,7 +28,7 @@ function getUserInfo() {
                 SET itemName = :fName,
                     itemDescription = :lName,
                     rarity = :email,
-                    costIfSold = :phone,
+                    costIfSold = :phone
                 WHERE itemName = :id";
         
         $np = array();

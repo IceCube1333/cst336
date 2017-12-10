@@ -41,10 +41,39 @@
     
     <form>
         <div id="buttons">
-            <button type="button" class="btn btn-info" onclick="">1 Roll</button>
-            <button type="button" class="btn btn-info" onclick="">10 Roll</button>
+            <button type="button" class="btn btn-info" onclick="oneRoll()">1 Roll</button>
+            <button type="button" class="btn btn-info" onclick="10roll()">10 Roll</button>
         </div>    
     </form>
+    
+    
+    <script>
+      function oneRoll() {
+        $.ajax({
+                type: "get",
+                url: "api.php",
+                dataType: "json",
+                data: {
+                    'username': $('#username').val(),
+                    'action': 'validate-username'
+                },
+                success: function(data,status) {
+                    // debugger;
+                    
+                    $('#username-valid').html("");
+                    if (data.length > 0) {
+                        $('#username-valid').html("Username is not available"); 
+                    } else {
+                        $('#username-valid').append("<span id='valid'>Username is available</span>");
+                    }
+                    
+                  },
+                complete: function(data,status) { //optional, used for debugging purposes
+                     //alert(status);
+                }
+            });
+      }
+    </script>
     
     <!--<footer class="container-fluid text-center">-->
     <!--    <p>CST336. 2017&copy; Hutt </p>-->
