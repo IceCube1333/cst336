@@ -42,11 +42,12 @@
     <form>
         <div id="buttons">
             <button type="button" class="btn btn-info" onclick="oneRoll()">1 Roll</button>
-            <button type="button" class="btn btn-info" onclick="tenRoll()">10 Roll</button>
+            <button type="button" class="btn btn-info" onclick="tenRoll()">10 Roll</button> <br><br>
+            <span id="roll1"></span>
         </div>    
     </form>
     
-    <span id="roll1"></span>
+    
     
     <script>
       function oneRoll() {
@@ -62,7 +63,7 @@
                     // alert("please work");
                     if (data.length > 0) {
                       console.log(data);
-                        $('#roll1').html(data[0].itemName); 
+                        $('#roll1').html("<div>" + data[0].itemName + " " + data[0].rarity +"*" + "<br>" + "Item description: " +data[0].itemDescription + "<br>"+"Sell Value: "+data[0].costIfSold +"</div>"); 
                     }
                   },
                 complete: function(data,status) { //optional, used for debugging purposes
@@ -84,7 +85,16 @@
                     // alert("please work");
                     if (data.length > 0) {
                       console.log(data);
-                        $('#roll1').html(data[0].itemName + "<br>" + data[1].itemName); 
+                        $('#roll1').html("<div>" + data[0].itemName + " " + data[0].rarity +"*" + "<br>" + "Item description: " +data[0].itemDescription + "<br>"+"Sell Value: "+data[0].costIfSold +"</div>"+"<br>"+ 
+                        "<div>" + data[1].itemName + " " + data[1].rarity +"*" + "<br>" + "Item description: " +data[1].itemDescription + "<br>"+"Sell Value: "+data[1].costIfSold +"</div>"+"<br>" + 
+                        "<div>" + data[2].itemName + " " + data[2].rarity +"*" + "<br>" + "Item description: " +data[2].itemDescription + "<br>"+"Sell Value: "+data[2].costIfSold +"</div>"+"<br>" + 
+                        "<div>" + data[3].itemName + " " + data[3].rarity +"*" + "<br>" + "Item description: " +data[3].itemDescription + "<br>"+"Sell Value: "+data[3].costIfSold +"</div>"+"<br>" +
+                        "<div>" + data[4].itemName + " " + data[4].rarity +"*" + "<br>" + "Item description: " +data[4].itemDescription + "<br>"+"Sell Value: "+data[4].costIfSold +"</div>"+"<br>" +
+                        "<div>" + data[5].itemName + " " + data[5].rarity +"*" + "<br>" + "Item description: " +data[5].itemDescription + "<br>"+"Sell Value: "+data[5].costIfSold +"</div>"+"<br>" +
+                        "<div>" + data[6].itemName + " " + data[6].rarity +"*" + "<br>" + "Item description: " +data[6].itemDescription + "<br>"+"Sell Value: "+data[6].costIfSold +"</div>"+"<br>" +
+                        "<div>" + data[7].itemName + " " + data[7].rarity +"*" + "<br>" + "Item description: " +data[7].itemDescription + "<br>"+"Sell Value: "+data[7].costIfSold +"</div>"+"<br>" +
+                        "<div>" + data[8].itemName + " " + data[8].rarity +"*" + "<br>" + "Item description: " +data[8].itemDescription + "<br>"+"Sell Value: "+data[8].costIfSold +"</div>"+"<br>" +
+                        "<div>" + data[9].itemName + " " + data[9].rarity +"*" + "<br>" + "Item description: " +data[9].itemDescription + "<br>"+"Sell Value: "+data[9].costIfSold +"</div>"+"<br>"); 
                         // $('#roll1').html(data[1].itemName);
                     }
                   },
