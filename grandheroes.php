@@ -42,34 +42,55 @@
     <form>
         <div id="buttons">
             <button type="button" class="btn btn-info" onclick="oneRoll()">1 Roll</button>
-            <button type="button" class="btn btn-info" onclick="10roll()">10 Roll</button>
+            <button type="button" class="btn btn-info" onclick="tenRoll()">10 Roll</button>
         </div>    
     </form>
     
+    <span id="roll1"></span>
     
     <script>
       function oneRoll() {
         $.ajax({
                 type: "get",
-                url: "api.php",
+                url: "functions.php",
                 dataType: "json",
                 data: {
-                    'username': $('#username').val(),
-                    'action': 'validate-username'
+                    'action': 'oneRoll'
                 },
                 success: function(data,status) {
                     // debugger;
-                    
-                    $('#username-valid').html("");
+                    // alert("please work");
                     if (data.length > 0) {
-                        $('#username-valid').html("Username is not available"); 
-                    } else {
-                        $('#username-valid').append("<span id='valid'>Username is available</span>");
+                      console.log(data);
+                        $('#roll1').html(data[0].itemName); 
                     }
-                    
                   },
                 complete: function(data,status) { //optional, used for debugging purposes
                      //alert(status);
+                    // alert("pleasework??");
+                }
+            });
+      }
+      function tenRoll() {
+        $.ajax({
+                type: "get",
+                url: "functions.php",
+                dataType: "json",
+                data: {
+                    'action': 'tenRoll'
+                },
+                success: function(data,status) {
+                    // debugger;
+                    // alert("please work");
+                    if (data.length > 0) {
+                      console.log(data);
+                        $('#roll1').html(data[0].itemName + "<br>" + data[1].itemName); 
+                        // $('#roll1').html(data[1].itemName);
+                    }
+                  },
+                complete: function(data,status) { //optional, used for debugging purposes
+                     //alert(status);
+                    // alert("pleasework??");
                 }
             });
       }
