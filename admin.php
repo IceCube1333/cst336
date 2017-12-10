@@ -4,6 +4,52 @@ if(!isset($_SESSION['username'])) { // checks if admin is logged in
     header("Location: index.php");
 }
 
+function grandList() {
+    include 'database.php';
+    $conn = getDatabaseConnection();
+    
+    $sql = "SELECT *
+            FROM grandheroes
+            ORDER BY itemName";
+    $stmt = $conn->prepare($sql);
+    $stmt->execute();
+    $records = $stmt->fetchAll(PDO::FETCH_ASSOC);
+   
+//   print_r($records);
+    return $records;
+}
+
+function royalList() {
+    // include 'database.php';
+    $conn = getDatabaseConnection();
+    
+    $sql = "SELECT *
+            FROM royals
+            ORDER BY itemName";
+    $stmt = $conn->prepare($sql);
+    $stmt->execute();
+    $records = $stmt->fetchAll(PDO::FETCH_ASSOC);
+   
+//   print_r($records);
+    return $records;
+}
+
+function adList() {
+    // include 'database.php';
+    $conn = getDatabaseConnection();
+    
+    $sql = "SELECT *
+            FROM angelsdemons
+            ORDER BY itemName";
+    $stmt = $conn->prepare($sql);
+    $stmt->execute();
+    $records = $stmt->fetchAll(PDO::FETCH_ASSOC);
+   
+//   print_r($records);
+    return $records;
+}
+
+
 ?>
 
 
@@ -47,65 +93,102 @@ if(!isset($_SESSION['username'])) { // checks if admin is logged in
     <h1> Admin Main </h1>
     <h2> Welcome <?=$_SESSION['adminName']?>!</h2>
     
-    <div class="col-sm-3 well">
+    <!--<div class="col-sm-3 well">-->
       <!--<form>-->
-        <div class="well">
-          <button type="button" class="btn btn-info" onclick="grandHer()">Grand Heroes</button>
-          <!--<img src="bird.jpg" class="img-circle" height="65" width="65" alt="Avatar">-->
-        </div>
-        <div class="well">
-          <button type="button" class="btn btn-info">Royals</button>
-        </div>
-        <div class="well">
-          <button type="button" class="btn btn-info">Angels & Demons</button>
-        </div>
-        <div class="well">
-          <button type="button" class="btn btn-primary disabled">Coming Soon</button>
-        </div>
-        <div class="well">
-          <button type="button" class="btn btn-primary disabled">Coming Soon</button>
-        </div>
-        <div class="well">
-          <button type="button" class="btn btn-primary disabled">Coming Soon</button>
-        </div>
+    <!--    <div class="well">-->
+          <!--<form>-->
+    <!--        <button type="button" class="btn btn-info" onclick="grandHer()">Grand Heroes</button>-->
+            <!--<img src="bird.jpg" class="img-circle" height="65" width="65" alt="Avatar">-->
+          <!--</form>-->
+    <!--    </div>-->
+    <!--    <div class="well">-->
+    <!--      <button type="button" class="btn btn-info">Royals</button>-->
+    <!--    </div>-->
+    <!--    <div class="well">-->
+    <!--      <button type="button" class="btn btn-info">Angels & Demons</button>-->
+    <!--    </div>-->
+    <!--    <div class="well">-->
+    <!--      <button type="button" class="btn btn-primary disabled">Coming Soon</button>-->
+    <!--    </div>-->
+    <!--    <div class="well">-->
+    <!--      <button type="button" class="btn btn-primary disabled">Coming Soon</button>-->
+    <!--    </div>-->
+    <!--    <div class="well">-->
+    <!--      <button type="button" class="btn btn-primary disabled">Coming Soon</button>-->
+    <!--    </div>-->
         <!--<div class="alert alert-success fade in">-->
         <!--  <a href="#" class="close" data-dismiss="alert" aria-label="close">×</a>-->
           <!--<p><strong>Ey!</strong></p>-->
           <!--People are looking at your profile. Find out who.-->
-        </div>
+    <!--    </div>-->
       <!--</form>-->
-    </div>
+    <!--</div>-->
     
-    <span id="gatchaInfo">Future gatcha Info to be displayed</span>
+    <span id="gatchaInfo"></span>
     
+    
+    <?php 
+              echo "<div class='row'>";
+                echo "<div class='col-sm-4'>";
+                // echo "<div id='gh'>";
+                  echo "Grand Heroes: ";echo"<br> <br>";
+                  
+                  echo "<form action='addItemGH.php'>";
+                  echo  "<input type='submit' value='Add new user'>";
+                  echo "</form>";
+                  $users = grandList();
+                  
+                  foreach($users as $user) {
+                      // echo "<div id='gh'>";
+                      echo $user['itemName'] . "  " . $user['rarity'] . "<br>";
+                      echo "[<a href='updateItem.php?userId=".$user['itemName']."'>Update</a>]"; 
+                      echo "[<a onclick='return confirmDelete()' href='deleteItem.php?userId=".$user['itemName']."'> Delete </a>] <br />";
+                      // echo "</div>";
+                  }
+                echo "</div>";  
+                // echo "</div>";
+                
+                echo "<div class='col-sm-4'>";
+                // echo "<div id='roy'>";
+                  echo "Royals: "; echo "<br> <br>";
+                  
+                  $users = royalList();
+                  
+                  foreach($users as $user) {
+                      // echo "<div id='roy'>";
+                      echo $user['itemName'] . "  " . $user['rarity'] . "<br>";
+                      // echo "[<a href='updateUser.php?userId=".$user['id']."'>Update</a>]"; 
+                      // echo "[<a onclick='return confirmDelete()' href='deleteUser.php?userId=".$user['id']."'> Delete </a>] <br />";
+                      // echo "</div>";
+                  }
+                echo "</div>";
+                // echo "</div>";
+                
+                echo "<div class='col-sm-4'>";
+                // echo "<div id='ad'>";
+                  echo "Angels & Demons: "; echo "<br> <br>";
+                  
+                  $users = adList();
+                  
+                  foreach($users as $user) {
+                      // echo "<div id='ad'>";
+                      echo $user['itemName'] . "  " . $user['rarity'] . "<br>";
+                      // echo "[<a href='updateUser.php?userId=".$user['id']."'>Update</a>]"; 
+                      // echo "[<a onclick='return confirmDelete()' href='deleteUser.php?userId=".$user['id']."'> Delete </a>] <br />";
+                      // echo "</div>";
+                  }
+                echo "</div>";
+                // echo "</div>";
+    ?>
     <form action="logout.php">
         <input type="submit" value="Logout">
     </form>
 
+    
     <script>
-      function grandHer() {
-        // alert("anything?");
-        $.ajax({
-                    type: "get",
-                    url: "functions.php",
-                    dataType: "json",
-                    data: {
-                        // "zip_code": $("#zip").val()
-                        'action': 'grandheroes'
-                    },
-                    success: function(data,status) {
-                        
-                        
-                        // if (data.length > 0) {
-                          alert("please work");
-                        // }
-                        
-                    },
-                    complete: function(data,status) { //optional, used for debugging purposes
-                        //alert(status);
-                    }
-                });
-      }
+        function confirmDelete() {
+          return confirm("Are you sure you want to delete this user?");
+        }
     </script>
 
 </body>

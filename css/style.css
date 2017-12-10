@@ -21,3 +21,8 @@ footer {
       color: white;
       padding: 15px;
 }
+.row {
+    width: 600px;
+    margin-left: 30% !important;
+    margin-top: 5% !important;
+}
