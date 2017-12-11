@@ -23,8 +23,8 @@ function loginProcess() {
             $record = $stmt->fetch();
             
             if (empty($record)) {
-                
-                echo "<span>Wrong Username or password</span>";
+                $msg = "Wrong username or password";
+                echo "<script type='text/javascript'>alert('$msg');</script>";
                 
             } else {
                 
@@ -87,7 +87,7 @@ function loginProcess() {
                 
                 Password: <input type="password" name="password" /> <br />
                 
-                <input type="submit" name="loginForm" value="Login" id="login"/>
+                <input type="submit" name="loginForm" value="Login" id="submit"/>
                 
             </form>
     

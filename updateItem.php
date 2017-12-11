@@ -107,8 +107,8 @@ function getUserInfo() {
             <br/>
             Cost if Sold: <input type ="text" name= "phone" value="<?=$userInfo['costIfSold']?>"/>
             <br />
-            <input type="submit" value="Update Item" name="updateUser">
-            <input type="submit" name="backButton" value="Back">
+            <input type="submit" value="Update Item" name="updateUser" id="submit">
+            <input type="submit" name="backButton" value="Back" id="submit">
         </form>    
         
         <footer>

@@ -224,7 +224,7 @@ function adList() {
                     echo "<p>Average rating: ".$user['AVG(rarity)']. "*</p>". "<br>";
                   
                   echo "<form action='addItemGH.php'>";
-                  echo  "<input type='submit' value='Add new item'>";
+                  echo  "<input type='submit' value='Add new item' id='submit'>";
                   echo "</form>";
                   
                   
@@ -289,7 +289,7 @@ function adList() {
                 // echo "</div>";
     ?>
     <form action="logout.php">
-        <input type="submit" value="Logout">
+        <input type="submit" value="Logout" id="submit">
     </form>
 
     

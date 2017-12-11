@@ -79,8 +79,8 @@ if (isset($_GET['backButton'])) {
                 <br/>
                 Cost if Sold: <input type ="text" name= "phone"/>
                 <br />
-                <input type="submit" value="Add Item" name="addUser">
-                <input type="submit" name="backButton" value="Back">
+                <input type="submit" value="Add Item" name="addUser" id="submit">
+                <input type="submit" name="backButton" value="Back" id="submit">
             </form>
             
             <footer>
