@@ -42,12 +42,49 @@
      $records = $statement->fetchAll(); 
      echo json_encode($records); 
 }
+
+    function oneRollR() {
+    
+    // $username = $_GET['username']; 
+    
+     $dbConn = getDatabaseConnection(); 
+     $sql = "SELECT * from royals ORDER BY RAND() LIMIT 10"; 
+     
+     $statement = $dbConn->prepare($sql); 
+    
+     $statement->execute(); 
+     $records = $statement->fetchAll(); 
+     echo json_encode($records); 
+}
+
+    function tenRollR() {
+    
+    // $username = $_GET['username']; 
+    
+     $dbConn = getDatabaseConnection(); 
+     $sql = "SELECT * from royals ORDER BY RAND() LIMIT 10"; 
+     
+     $statement = $dbConn->prepare($sql); 
+    
+     $statement->execute(); 
+     $records = $statement->fetchAll(); 
+     echo json_encode($records); 
+}
     
     if ($_GET['action'] == 'oneRoll') {
         oneRoll();
     }
     if ($_GET['action'] == 'tenRoll') {
-        oneRoll();
+        tenRoll();
     }
+    
+    if ($_GET['action'] == 'oneRollR') {
+        oneRollR();
+    }
+    if ($_GET['action'] == 'tenRollR') {
+        tenRollR();
+    }
+    
+    
     
 ?>
