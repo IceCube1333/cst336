@@ -47,8 +47,8 @@
                 <p>Grand Heroes</p>
                 <p>Royals</p>
                 <p>Angels & Demons</p>  
-                <p>Wizardy Might</p>  
-                <p>Warrior's Fury</p>  
+                <p>Wizardy Might (Coming Soon)</p>  
+                <p>Warrior's Fury (Coming Soon)</p>  
                    
                    
                    
@@ -61,13 +61,13 @@
                 $("#gatchaList").html("<p>Angels & Demons</p>"+
                 "<p>Grand Heroes</p>" +
                 "<p>Royals</p>" + 
-                "<p>Warrior's Fury</p>" +
-                "<p>Wizardy Might</p>")
+                "<p>Warrior's Fury (Coming Soon)</p>" +
+                "<p>Wizardy Might (Coming Soon)</p>")
             }
             
             function descending() {
-                $("#gatchaList").html("<p>Wizardy Might</p>"+
-                "<p>Warrior's Fury</p>" +
+                $("#gatchaList").html("<p>Wizardy Might (Coming Soon)</p>"+
+                "<p>Warrior's Fury (Coming Soon)</p>" +
                 "<p>Royals</p>" + 
                 "<p>Grand Heroes</p>" +
                 "<p>Angels & Demons</p>")
