@@ -43,7 +43,7 @@ function loginProcess() {
 
 <html>
     <head>
-        <title>DND Gatcha</title>
+        <title>DND Gacha</title>
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <link rel="stylesheet" href="css/style.css" type="text/css" />
@@ -70,7 +70,7 @@ function loginProcess() {
             <li><a href="grandheroes.php">Grand Heroes</a></li>
             <li><a href="royals.php">Royals</a></li>
             <li><a href="angels&demons.php">Angels & Demons</a></li>
-            <li><a href="gatchaList.php">Gatcha List</a></li>
+            <li><a href="gatchaList.php">Gacha List</a></li>
           </ul>
           <ul class="nav navbar-nav navbar-right">
             <li class="active"><a href="adminLogin.php"><span class="glyphicon glyphicon-log-in"></span> Login</a></li>
