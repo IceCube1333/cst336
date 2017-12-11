@@ -97,7 +97,7 @@ function getUserInfo() {
         <h1> Update Item in Grand Heroes </h1>
     
     <!--<h1> Tech Checkout System: Upating User's Info </h1>-->
-        <form method="GET" id="update-page">
+        <form method="GET" id="login">
             <input type="hidden" name="itemName" value="<?=$userInfo['itemName']?>" />
             Item Name:<input type="text" name="firstName" value="<?=$userInfo['itemName']?>"/>
             <br />

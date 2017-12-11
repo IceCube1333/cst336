@@ -40,8 +40,8 @@
             
               <div class="form-group">
                     Filter By:
-                    <button type="button" class="btn btn-info"onclick="ascending()">Ascending</button>
-                    <button type="button" class="btn btn-info"onclick="descending()">Descending</button>
+                    <button type="button" class="btn btn-info"onclick="current()">Current</button>
+                    <button type="button" class="btn btn-info"onclick="future()">Future</button>
               </div>
             <div id="gatchaList">
                 <p>Grand Heroes</p>
@@ -57,20 +57,18 @@
     
     
         <script>
-            function ascending() {
-                $("#gatchaList").html("<p>Angels & Demons</p>"+
-                "<p>Grand Heroes</p>" +
-                "<p>Royals</p>" + 
-                "<p>Warrior's Fury (Coming Soon)</p>" +
-                "<p>Wizardy Might (Coming Soon)</p>")
-            }
             
-            function descending() {
-                $("#gatchaList").html("<p>Wizardy Might (Coming Soon)</p>"+
-                "<p>Warrior's Fury (Coming Soon)</p>" +
+            function current() {
+                $("#gatchaList").html(
                 "<p>Royals</p>" + 
                 "<p>Grand Heroes</p>" +
                 "<p>Angels & Demons</p>")
+            }
+            
+            function future() {
+                $("#gatchaList").html(
+                "<p>Warrior's Fury (Coming Soon)</p> " + 
+                "<p>Wizardy Might (Coming Soon)</p>")
             }
         </script>
 </body>

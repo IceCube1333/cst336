@@ -70,7 +70,7 @@ if (isset($_GET['backButton'])) {
 
             <!--<h2> Tech Checkout System: Adding a New User </h2>-->
     
-            <form method="GET">
+            <form method="GET" id="login">
                 Item Name:<input type="text" name="firstName" />
                 <br />
                 Item Description:<input type="text" name="lastName"/>
@@ -79,6 +79,7 @@ if (isset($_GET['backButton'])) {
                 <br/>
                 Cost if Sold: <input type ="text" name= "phone"/>
                 <br />
+                <br>
                 <input type="submit" value="Add Item" name="addUser" id="submit">
                 <input type="submit" name="backButton" value="Back" id="submit">
             </form>
