@@ -70,6 +70,34 @@
      $records = $statement->fetchAll(); 
      echo json_encode($records); 
 }
+
+    function oneRollAd() {
+    
+    // $username = $_GET['username']; 
+    
+     $dbConn = getDatabaseConnection(); 
+     $sql = "SELECT * from angelsdemons ORDER BY RAND() LIMIT 10"; 
+     
+     $statement = $dbConn->prepare($sql); 
+    
+     $statement->execute(); 
+     $records = $statement->fetchAll(); 
+     echo json_encode($records); 
+}
+
+    function tenRollAd() {
+    
+    // $username = $_GET['username']; 
+    
+     $dbConn = getDatabaseConnection(); 
+     $sql = "SELECT * from angelsdemons ORDER BY RAND() LIMIT 10"; 
+     
+     $statement = $dbConn->prepare($sql); 
+    
+     $statement->execute(); 
+     $records = $statement->fetchAll(); 
+     echo json_encode($records); 
+}
     
     if ($_GET['action'] == 'oneRoll') {
         oneRoll();
@@ -84,7 +112,12 @@
     if ($_GET['action'] == 'tenRollR') {
         tenRollR();
     }
-    
+    if ($_GET['action'] == 'oneRollAd') {
+        oneRollAd();
+    }
+    if ($_GET['action'] == 'tenRollAd') {
+        tenRollAd();
+    }
     
     
 ?>
