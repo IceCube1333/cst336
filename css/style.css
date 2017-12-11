@@ -26,3 +26,13 @@ footer {
     margin-left: 30% !important;
     margin-top: 5% !important;
 }
+
+.form-group {
+    margin-left: 45%;
+    width: 5% !important;
+    display: inline;
+}
+#gatchaList {
+    margin-left: 45%;
+    margin-top: 2%;
+}

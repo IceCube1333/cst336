@@ -25,31 +25,53 @@
           <ul class="nav navbar-nav">
             <li><a href="index.php">Home</a></li>
             <li><a href="grandheroes.php">Grand Heroes</a></li>
-            <li class="active"><a href="royals.php">Royals</a></li>
+            <li><a href="royals.php">Royals</a></li>
             <li><a href="angels&demons.php">Angels & Demons</a></li>
-            <li><a href="gatchaList.php">Gatcha List</a></li>
+            <li class="active"><a href="gatchaList.php">Gatcha List</a></li>
           </ul>
           <ul class="nav navbar-nav navbar-right">
             <li><a href="adminLogin.php"><span class="glyphicon glyphicon-log-in"></span> Login</a></li>
           </ul>
         </div>
       </div>
-    </nav>  
+    </nav> 
     
-    <h2>The Royals Gatcha Banner</h2>
-    <img src="photos/royalty.jpg" id="royalty">
-    <h3>Roll for an opportunity to get royal loot!</h3>
+         <h2>Dungeons & Dragons Gatcha Event List</h2>
+            
+              <div class="form-group">
+                    Filter By:
+                    <button type="button" class="btn btn-info"onclick="ascending()">Ascending</button>
+                    <button type="button" class="btn btn-info"onclick="descending()">Descending</button>
+              </div>
+            <div id="gatchaList">
+                <p>Grand Heroes</p>
+                <p>Royals</p>
+                <p>Angels & Demons</p>  
+                <p>Wizardy Might</p>  
+                <p>Warrior's Fury</p>  
+                   
+                   
+                   
+                   
+            </div>
     
-    <form>
-        <div id="buttons">
-            <button type="button" class="btn btn-info" onclick="">1 Roll</button>
-            <button type="button" class="btn btn-info" onclick="">10 Roll</button>
-        </div>    
-    </form>    
-    <!--<br>-->
-    <!--<br>-->
-    <!--<footer class="container-fluid text-center">-->
-    <!--  <p>CST336. 2017&copy; Hutt </p>-->
-    <!--</footer> -->
+    
+        <script>
+            function ascending() {
+                $("#gatchaList").html("<p>Angels & Demons</p>"+
+                "<p>Grand Heroes</p>" +
+                "<p>Royals</p>" + 
+                "<p>Warrior's Fury</p>" +
+                "<p>Wizardy Might</p>")
+            }
+            
+            function descending() {
+                $("#gatchaList").html("<p>Wizardy Might</p>"+
+                "<p>Warrior's Fury</p>" +
+                "<p>Royals</p>" + 
+                "<p>Grand Heroes</p>" +
+                "<p>Angels & Demons</p>")
+            }
+        </script>
 </body>
 </html>

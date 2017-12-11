@@ -27,6 +27,7 @@
             <li><a href="grandheroes.php">Grand Heroes</a></li>
             <li><a href="royals.php">Royals</a></li>
             <li class="active"><a href="angels&demons.php">Angels & Demons</a></li>
+            <li><a href="gatchaList.php">Gatcha List</a></li>
           </ul>
           <ul class="nav navbar-nav navbar-right">
             <li><a href="adminLogin.php"><span class="glyphicon glyphicon-log-in"></span> Login</a></li>
