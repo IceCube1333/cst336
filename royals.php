@@ -43,7 +43,7 @@
     <form>
         <div id="buttons">
             <button type="button" class="btn btn-info" onclick="oneRollR()">1 Roll</button>
-            <button type="button" class="btn btn-info" onclick="tenRollR()">10 Roll</button>
+            <button type="button" class="btn btn-info" onclick="tenRollR()">10 Roll</button> <br><br>
             <span id="roll1"></span>
         </div>    
     </form>    
