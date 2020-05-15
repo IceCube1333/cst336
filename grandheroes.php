@@ -82,8 +82,7 @@
                     'action': 'tenRoll'
                 },
                 success: function(data,status) {
-                    // debugger;
-                    // alert("please work");
+
                     if (data.length > 0) {
                       console.log(data);
                         $('#roll1').html("<div>" + data[0].itemName + " " + data[0].rarity +"*" + "<br>" + "Item description: " +data[0].itemDescription + "<br>"+"Sell Value: "+data[0].costIfSold +"</div>"+"<br>"+ 
@@ -96,20 +95,16 @@
                         "<div>" + data[7].itemName + " " + data[7].rarity +"*" + "<br>" + "Item description: " +data[7].itemDescription + "<br>"+"Sell Value: "+data[7].costIfSold +"</div>"+"<br>" +
                         "<div>" + data[8].itemName + " " + data[8].rarity +"*" + "<br>" + "Item description: " +data[8].itemDescription + "<br>"+"Sell Value: "+data[8].costIfSold +"</div>"+"<br>" +
                         "<div>" + data[9].itemName + " " + data[9].rarity +"*" + "<br>" + "Item description: " +data[9].itemDescription + "<br>"+"Sell Value: "+data[9].costIfSold +"</div>"+"<br>"); 
-                        // $('#roll1').html(data[1].itemName);
+
                     }
                   },
-                complete: function(data,status) { //optional, used for debugging purposes
-                     //alert(status);
-                    // alert("pleasework??");
+                complete: function(data,status) { 
+                    // yo
                 }
             });
       }
     </script>
-    
-    <!--<footer class="container-fluid text-center">-->
-    <!--    <p>CST336. 2017&copy; Hutt </p>-->
-    <!--</footer>     -->
+   
     
 </body>
 </html>
